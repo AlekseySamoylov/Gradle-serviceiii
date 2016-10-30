@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/serviceiii.iml" filepath="$PROJECT_DIR$/.idea/modules/serviceiii.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/serviceiii_integTest.iml" filepath="$PROJECT_DIR$/.idea/modules/serviceiii_integTest.iml" group="serviceiii" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/serviceiii_main.iml" filepath="$PROJECT_DIR$/.idea/modules/serviceiii_main.iml" group="serviceiii" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/serviceiii_test.iml" filepath="$PROJECT_DIR$/.idea/modules/serviceiii_test.iml" group="serviceiii" />
+    </modules>
+  </component>
+</project>
