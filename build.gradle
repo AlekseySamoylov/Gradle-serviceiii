@@ -44,6 +44,11 @@ dependencies {
     compile "org.hibernate:hibernate-entitymanager:5.1.0.Final"
     compile "org.hibernate:hibernate-validator:5.2.4.Final"
 
+    compile "org.testng:testng:6.9.10"
+    compile "junit:junit:4.12"
+    compile "org.springframework:spring-test:4.2.6.RELEASE"
+    compile "org.mockito:mockito-all:1.10.19"
+
     provided "org.projectlombok:lombok:1.16.6"
 
 
