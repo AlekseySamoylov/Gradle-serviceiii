@@ -23,6 +23,7 @@ public class CompanyPositionOnMapRepositoryImpl implements CompanyPositionOnMapR
     @Override
     @Transactional(readOnly = true)
     public List<CompanyPositionOnMap> findAll() {
-        return entityManager.createNamedQuery("CompanyPositionOnMap.findAll", CompanyPositionOnMap.class).getResultList();
+        List<CompanyPositionOnMap> companies = entityManager.createNamedQuery("CompanyPositionOnMap.findAll", CompanyPositionOnMap.class).getResultList();
+        return companies;
     }
 }
