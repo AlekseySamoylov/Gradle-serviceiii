@@ -3,3 +3,5 @@
 build/
 out/
 
+/src/main/resources/database.properties
+/src/test/resources/database.properties

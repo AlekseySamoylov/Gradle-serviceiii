@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="0.3-asamoylov-1" author="asamoylov">
+        <sql>
+            CREATE TYPE company_type_enum AS ENUM ('CAR_SERVICE', 'TIRE_SERVICE', 'CAR_WASH');
+        </sql>
+    </changeSet>
+
+    <changeSet id="0.3-asamoylov-2" author="asamoylov">
+        <createTable tableName="company_position" remarks="позиция организации">
+            <column name="id" type="serial" remarks="Идентификатор">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar2(512)" remarks="Название компании">
+                <constraints nullable="false"/>
+            </column>
+            <column name="details" type="varchar2(1024)" remarks="Описание компании">
+                <constraints nullable="true"/>
+            </column>
+            <column name="latitude" type="numeric" remarks="Широта">
+                <constraints nullable="false"/>
+            </column>
+            <column name="longitude" type="numeric" remarks="Долгота">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="0.3-asamoylov-3" author="asamoylov">
+        <createTable tableName="company_position_company_type" remarks="соотнесение компании с типом">
+            <column name="company_position_id" type="integer" remarks="Идентификатор">
+                <constraints nullable="false"/>
+            </column>
+            <column name="company_type" type="company_type_enum" remarks="Тип компании">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="0.1-asamoylov-10" author="asamoylov">
+        <addForeignKeyConstraint baseTableName="company_position_company_type"
+                                 baseColumnNames="company_position_id"
+                                 constraintName="fk_company_type_company_position"
+                                 referencedTableName="company_position"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="0.3-asamoylov-11" author="asamoylov">
+        <insert tableName="company_position">
+            <column name="id">1</column>
+            <column name="name">Компания №1</column>
+            <column name="details">Хорошая компания по ремонту автомобилей</column>
+            <column name="latitude">58.052969</column>
+            <column name="longitude">56.357257</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.3-asamoylov-12" author="asamoylov">
+        <insert tableName="company_position_company_type">
+            <column name="company_position_id">1</column>
+            <column name="company_type">CAR_SERVICE</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.3-asamoylov-13" author="asamoylov">
+        <insert tableName="company_position">
+            <column name="id">2</column>
+            <column name="name">Шиномонтах №1</column>
+            <column name="details">Хорошая компания по ремонту Колес</column>
+            <column name="latitude">58.064850</column>
+            <column name="longitude">56.353431</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.3-asamoylov-14" author="asamoylov">
+        <insert tableName="company_position_company_type">
+            <column name="company_position_id">2</column>
+            <column name="company_type">TIRE_SERVICE</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.3-asamoylov-15" author="asamoylov">
+        <insert tableName="company_position_company_type">
+            <column name="company_position_id">1</column>
+            <column name="company_type">TIRE_SERVICE</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.3-asamoylov-16" author="asamoylov">
+        <insert tableName="company_position_company_type">
+            <column name="company_position_id">1</column>
+            <column name="company_type">CAR_WASH</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

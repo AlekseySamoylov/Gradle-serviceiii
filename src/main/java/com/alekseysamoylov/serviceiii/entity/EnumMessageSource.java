@@ -5,7 +5,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.support.ResourceBundleMessageSource;
 
 /**
- * Класс предоставляет MessageSource с человекочитаемыми названиями Enum типов модуля sipsga
+ * Класс предоставляет MessageSource с человекочитаемыми названиями Enum
  */
 
 public abstract class EnumMessageSource {
@@ -14,7 +14,7 @@ public abstract class EnumMessageSource {
 
     static {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasename(ClassUtils.getPackageName(EnumMessageSource.class) + ".entities");
+        messageSource.setBasename("locales.enums");
         MESSAGE_SOURCE = messageSource;
     }
 
@@ -25,7 +25,9 @@ public abstract class EnumMessageSource {
      * @return название элемента
      */
     public static String getName(Enum item) {
-        return MESSAGE_SOURCE.getMessage(ClassUtils.getShortClassName(item.getClass()) + "." + item.name(), null, null);
+        String shortClassName = ClassUtils.getShortClassName(item.getClass());
+        String code = shortClassName + "." + item.name();
+        return MESSAGE_SOURCE.getMessage(code, null, null);
     }
 
 }

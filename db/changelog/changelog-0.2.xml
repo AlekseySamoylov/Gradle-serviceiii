@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="0.2-asamoylov-1" author="asamoylov">
+        <createTable tableName="test_table" remarks="Тестовая таблица">
+            <column name="id" type="serial" remarks="Идентификатор">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar2(4024)" remarks="Текст">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-2" author="asamoylov">
+        <insert tableName="test_table">
+            <column name="name">Hello world! Test text.</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-3" author="asamoylov">
+        <sql>
+            CREATE TYPE company_type AS ENUM ('CAR_SERVICE', 'TIRE_SERVICE', 'CAR_WASH');
+        </sql>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-4" author="asamoylov">
+        <addColumn tableName="test_table">
+            <column name="company_type" type="company_type"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-5" author="asamoylov">
+        <insert tableName="test_table">
+            <column name="name">Hello world3! Test text.</column>
+            <column name="company_type">CAR_SERVICE</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-6" author="asamoylov">
+        <insert tableName="test_table">
+            <column name="name">Hello world4! Test text.</column>
+            <column name="company_type">CAR_WASH</column>
+        </insert>
+    </changeSet>
+    <changeSet id="0.2-asamoylov-7" author="asamoylov">
+        <insert tableName="test_table">
+            <column name="name">Hello world5! Test text.</column>
+            <column name="company_type">TIRE_SERVICE</column>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

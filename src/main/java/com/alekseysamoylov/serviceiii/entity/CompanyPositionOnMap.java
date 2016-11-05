@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.Hibernate;
 
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,13 +14,36 @@ import java.util.List;
  */
 @Getter
 @Setter
+@Entity
+@Table(name = "company_position")
+@NamedQueries({
+        @NamedQuery(name = "CompanyPositionOnMap.findAll", query = "select c from CompanyPositionOnMap c")
+})
 public class CompanyPositionOnMap {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "name", nullable = false)
     private String name;
+
+    @Column(name = "details")
     private String details;
-    private double longitude;
+
+    @Column(name = "latitude", nullable = false)
     private double latitude;
-    private List<CompanyType> companyTypeList;
+
+    @Column(name = "longitude", nullable = false)
+    private double longitude;
+
+    @ElementCollection(targetClass = CompanyType.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "company_position_company_type",
+            joinColumns = @JoinColumn(name = "company_position_id"))
+    @Column(name = "company_type")
+    @Enumerated(EnumType.STRING)
+    private List<CompanyType> companyTypeList = new ArrayList<>();
 
     public CompanyPositionOnMap() {
     }
@@ -56,4 +81,15 @@ public class CompanyPositionOnMap {
         return hashCode;
     }
 
+    @Override
+    public String toString() {
+        return "CompanyPositionOnMap{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", details='" + details + '\'' +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", companyTypeList=" + companyTypeList +
+                '}';
+    }
 }
