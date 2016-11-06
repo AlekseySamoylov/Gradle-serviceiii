@@ -8,7 +8,7 @@ import java.util.List;
  * Created by Aleksey Samoylov on 29.12.2015.
  */
 public interface TestCustomRepository {
-    public List<TestClass> findAll();
+    List<TestClass> findAll();
 
-    public TestClass findOne(Long id);
+    TestClass findOne(Long id);
 }

@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface CompanyPositionOnMapRepository {
 
-    public List<CompanyPositionOnMap> findAll();
+    List<CompanyPositionOnMap> findAll();
 }

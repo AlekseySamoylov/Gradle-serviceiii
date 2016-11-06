@@ -4,6 +4,7 @@ import com.alekseysamoylov.serviceiii.entity.CompanyPositionOnMap;
 import com.alekseysamoylov.serviceiii.entity.TestClass;
 import com.alekseysamoylov.serviceiii.repository.TestCustomRepository;
 import com.alekseysamoylov.serviceiii.service.CompanyPositionOnMapService;
+import com.alekseysamoylov.serviceiii.service.EnumDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Aleksey Samoylov on 29.12.2015.
@@ -20,13 +22,16 @@ public class WelcomeController {
 
     private CompanyPositionOnMapService companyPositionOnMapService;
     private TestCustomRepository testCustomRepository;
+    private EnumDetailsService enumDetailsService;
 
     @Autowired
     public WelcomeController(
             CompanyPositionOnMapService companyPositionOnMapService,
-            TestCustomRepository testCustomRepository) {
+            TestCustomRepository testCustomRepository,
+            EnumDetailsService enumDetailsService) {
         this.companyPositionOnMapService = companyPositionOnMapService;
         this.testCustomRepository = testCustomRepository;
+        this.enumDetailsService = enumDetailsService;
     }
 
     @RequestMapping(value = "/")
@@ -39,6 +44,13 @@ public class WelcomeController {
     @ResponseBody
     public List<CompanyPositionOnMap> getCoordinates() {
         return companyPositionOnMapService.findAll();
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "/enums")
+    @ResponseBody
+    public Map<String, String> getEnumDetails() {
+        return enumDetailsService.getEnumDetais();
     }
 
 

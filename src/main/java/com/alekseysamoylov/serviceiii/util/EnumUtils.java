@@ -26,25 +26,4 @@ public class EnumUtils {
         }
         return null;
     }
-
-//    /**
-//     * Возвращает значение перечислимого типа, реализующего интерфейс {@link CustomStringEnum},
-//     * по его строковому значению.
-//     *
-//     * @param enumClass класс перечислимого типа, реализующего интерфейс {@link CustomStringEnum}
-//     * @param value     строковое значение элемента перечислимого типа
-//     * @param <T>       перечислимый тип
-//     * @return значение перечислимого типа или {@code null}, если значения, соответствующего {@code value}, нет
-//     * @throws IllegalArgumentException если {@code enumClass} не является перечислимым
-//     */
-//    public static <T extends CustomStringEnum> T getEnum(Class<T> enumClass, String value) {
-//        Validate.isAssignableFrom(Enum.class, enumClass);
-//
-//        for (T enumValue : enumClass.getEnumConstants()) {
-//            if (enumValue.getCode().equals(value)) {
-//                return enumValue;
-//            }
-//        }
-//        return null;
-//    }
 }
