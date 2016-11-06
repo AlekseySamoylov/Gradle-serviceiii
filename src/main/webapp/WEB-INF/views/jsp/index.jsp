@@ -19,6 +19,11 @@
 <spring:url value="/coordinates" var="coordinatesUrl"/>
 <a href="${coordinatesUrl}">Coordinates</a>
 
+<spring:url value="/enums" var="enumsUrl"/>
+<a href="${enumsUrl}">Enums details</a>
+
+<spring:url value="/prices" var="pricesUrl"/>
+<a href="${pricesUrl}">Prices</a>
 
 <script src="${coreJs}"></script>
 <script src="${bootstrapJs}"></script>

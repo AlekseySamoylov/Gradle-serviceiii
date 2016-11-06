@@ -18,11 +18,24 @@ public class CacheServiceImplTest extends AbstractTestNGSpringContextTests {
     CompanyPositionOnMapService companyPositionOnMapService;
 
     @Autowired
+    PriceGroupService priceGroupService;
+
+    @Autowired
     CacheService cacheService;
 
     @Test
+    public void priceGroupCacheTest() {
+        for (int i = 0; i < 50; i++) {
+            if (i == 25) {
+                cacheService.clearAllCaches();
+            }
+            System.out.println(priceGroupService.findAllFetchLazy().get(0).getPrices().get(0));
+
+        }
+    }
+
+    @Test
     public void testClearCaches() throws Exception {
-        System.out.println(companyPositionOnMapService);
         for (int i = 0; i < 50; i++) {
             if (i == 25) {
                 cacheService.clearCaches(CompanyPositionOnMap.CACHE_NAME);

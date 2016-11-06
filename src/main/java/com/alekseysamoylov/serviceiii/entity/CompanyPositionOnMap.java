@@ -22,6 +22,7 @@ import java.util.List;
 })
 public class CompanyPositionOnMap implements Serializable, CachableEntity {
 
+
     public static final String CACHE_NAME = "companyPositionOnMap";
 
     @Override
