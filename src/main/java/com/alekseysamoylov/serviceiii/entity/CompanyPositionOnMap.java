@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,15 @@ import java.util.List;
 @NamedQueries({
         @NamedQuery(name = "CompanyPositionOnMap.findAll", query = "select c from CompanyPositionOnMap c")
 })
-public class CompanyPositionOnMap {
+public class CompanyPositionOnMap implements Serializable, CachableEntity {
+
+    public static final String CACHE_NAME = "companyPositionOnMap";
+
+    @Override
+    public String[] getCacheNames() {
+        return new String[]{CACHE_NAME};
+    }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

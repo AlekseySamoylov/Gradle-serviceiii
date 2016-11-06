@@ -3,6 +3,7 @@ package com.alekseysamoylov.serviceiii.repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
@@ -16,8 +17,8 @@ public class TestRepositoryTest extends AbstractTestNGSpringContextTests {
 
     @Test
     public void testMethod() {
-        System.out.println(testRepository.findOne(1L));
-        System.out.println(testRepository.findAll());
+        Assert.assertNotNull(testRepository.findOne(1L));
+        Assert.assertTrue(testRepository.findAll().size() > 0);
     }
 
 }

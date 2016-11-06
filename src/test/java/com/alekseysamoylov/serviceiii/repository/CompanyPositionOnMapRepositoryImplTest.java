@@ -3,6 +3,7 @@ package com.alekseysamoylov.serviceiii.repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
@@ -16,7 +17,7 @@ public class CompanyPositionOnMapRepositoryImplTest extends AbstractTestNGSpring
 
     @Test
     public void testFindAll() throws Exception {
-        System.out.println(companyPositionOnMapRepository.findAll());
+        Assert.assertTrue(companyPositionOnMapRepository.findAll().size() > 0);
     }
 
 }

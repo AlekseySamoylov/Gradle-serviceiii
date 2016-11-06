@@ -4,7 +4,6 @@ import com.alekseysamoylov.serviceiii.entity.CompanyPositionOnMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -13,7 +12,7 @@ import java.util.List;
  * Created by Aleksey Samoylov on 29.12.2015.
  */
 @ContextConfiguration("classpath:spring-core-config-test.xml")
-public class CompanyPositionOnMapServiceImplTest extends AbstractTestNGSpringContextTests {
+public class CacheServiceImplTest extends AbstractTestNGSpringContextTests {
 
     @Autowired
     CompanyPositionOnMapService companyPositionOnMapService;
@@ -22,11 +21,17 @@ public class CompanyPositionOnMapServiceImplTest extends AbstractTestNGSpringCon
     CacheService cacheService;
 
     @Test
-    public void testFindAll() throws Exception {
+    public void testClearCaches() throws Exception {
+        System.out.println(companyPositionOnMapService);
+        for (int i = 0; i < 50; i++) {
+            if (i == 25) {
+                cacheService.clearCaches(CompanyPositionOnMap.CACHE_NAME);
+            }
 
-        List<CompanyPositionOnMap> companyPositionOnMapList = companyPositionOnMapService.findAll();
-        Assert.assertNotNull(companyPositionOnMapList.get(0).getCompanyTypeList().get(0).getName());
+            List<CompanyPositionOnMap> companyPositionOnMapList = companyPositionOnMapService.findAll();
+            System.out.println(companyPositionOnMapList.get(0).getCompanyTypeList().get(0).getName());
 
+        }
     }
 
 }

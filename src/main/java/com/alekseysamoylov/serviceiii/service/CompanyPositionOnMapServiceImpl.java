@@ -2,15 +2,21 @@ package com.alekseysamoylov.serviceiii.service;
 
 import com.alekseysamoylov.serviceiii.entity.CompanyPositionOnMap;
 import com.alekseysamoylov.serviceiii.repository.CompanyPositionOnMapRepository;
+import lombok.extern.apachecommons.CommonsLog;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 /**
  * Created by Aleksey Samoylov on 29.12.2015.
  */
+@CommonsLog
 @Service
+@CacheConfig(cacheNames = CompanyPositionOnMap.CACHE_NAME)
 public class CompanyPositionOnMapServiceImpl implements CompanyPositionOnMapService {
 
     private CompanyPositionOnMapRepository companyPositionOnMapRepository;
@@ -21,13 +27,9 @@ public class CompanyPositionOnMapServiceImpl implements CompanyPositionOnMapServ
     }
 
     @Override
+    @Transactional(readOnly = true)
+    @Cacheable
     public List<CompanyPositionOnMap> findAll() {
-//        List<CompanyPositionOnMap> companies = new ArrayList<>();
-//        companies.add(new CompanyPositionOnMap("First", "Hello world", 55.323423, 53.234324, new ArrayList<CompanyType>(Arrays.asList(CompanyType.CAR_SERVICE))));
-//        companies.add(new CompanyPositionOnMap("Second", "Hello world", 55.323523, 53.234424, new ArrayList<CompanyType>(Arrays.asList(CompanyType.CAR_WASH))));
-//        companies.add(new CompanyPositionOnMap("Third", "Hello world", 55.323493, 53.234394, new ArrayList<CompanyType>(Arrays.asList(CompanyType.TIRE_SERVICE))));
-//        System.out.println("Hello");
-//        return companies;
         return companyPositionOnMapRepository.findAll();
     }
 }

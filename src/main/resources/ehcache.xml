@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+         updateCheck="false"
+         monitoring="autodetect"
+         dynamicConfig="true">
+    <diskStore path="java.io.tmpdir"/>
+
+    <!-- Кэш по умолчанию не используем, в этом случае если кэш с указанным именем не найден,
+     то произойдет ошибка (также работает реализация кэша на WebSphere) -->
+
+    <cache name="companyPositionOnMap" eternal="true" maxElementsInMemory="1000" overflowToDisk="false"/>
+
+
+</ehcache>
