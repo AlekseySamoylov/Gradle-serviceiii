@@ -1,6 +1,7 @@
 package com.alekseysamoylov.serviceiii.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.Hibernate;
@@ -19,6 +20,9 @@ import java.util.List;
 @Table(name = "company_position")
 @NamedQueries({
         @NamedQuery(name = "CompanyPositionOnMap.findAll", query = "select c from CompanyPositionOnMap c")
+})
+@JsonIgnoreProperties({
+    "cacheNames"
 })
 public class CompanyPositionOnMap implements Serializable, CachableEntity {
 

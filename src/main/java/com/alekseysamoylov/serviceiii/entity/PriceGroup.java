@@ -1,5 +1,6 @@
 package com.alekseysamoylov.serviceiii.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
@@ -18,6 +19,9 @@ import java.util.List;
 @Setter
 @NamedQueries({
         @NamedQuery(name = "PriceGroup.findAllFetchLazy", query = "select pg from PriceGroup pg left join fetch pg.prices pr")
+})
+@JsonIgnoreProperties({
+        "cacheNames"
 })
 public class PriceGroup implements Serializable, CachableEntity {
 
