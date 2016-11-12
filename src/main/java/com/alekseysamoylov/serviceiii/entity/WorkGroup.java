@@ -14,19 +14,19 @@ import java.util.List;
  * Created by Aleksey Samoylov on 29.12.2015.
  */
 @Entity
-@Table(name = "price_group")
+@Table(name = "work_group")
 @Getter
 @Setter
 @NamedQueries({
-        @NamedQuery(name = "PriceGroup.findAllFetchLazy", query = "select pg from PriceGroup pg left join fetch pg.prices pr")
+        @NamedQuery(name = "WorkGroup.findAllFetchLazy", query = "select pg from WorkGroup pg left join fetch pg.works pr")
 })
 @JsonIgnoreProperties({
         "cacheNames"
 })
-public class PriceGroup implements Serializable, CachableEntity {
+public class WorkGroup implements Serializable, CachableEntity {
 
     @JsonDeserialize
-    public static final String CACHE_NAME = "priceGroup";
+    public static final String CACHE_NAME = "workGroup";
 
     @Override
     public String[] getCacheNames() {
@@ -42,8 +42,8 @@ public class PriceGroup implements Serializable, CachableEntity {
     private String title;
 
     @JsonManagedReference
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "priceGroup", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Price> prices;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "workGroup", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Work> works;
 
     @Override
     public String toString() {

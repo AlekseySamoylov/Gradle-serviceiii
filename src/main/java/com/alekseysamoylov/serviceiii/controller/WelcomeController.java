@@ -1,12 +1,12 @@
 package com.alekseysamoylov.serviceiii.controller;
 
 import com.alekseysamoylov.serviceiii.entity.CompanyPositionOnMap;
-import com.alekseysamoylov.serviceiii.entity.PriceGroup;
 import com.alekseysamoylov.serviceiii.entity.TestClass;
+import com.alekseysamoylov.serviceiii.entity.WorkGroup;
 import com.alekseysamoylov.serviceiii.repository.TestCustomRepository;
 import com.alekseysamoylov.serviceiii.service.CompanyPositionOnMapService;
 import com.alekseysamoylov.serviceiii.service.EnumDetailsService;
-import com.alekseysamoylov.serviceiii.service.PriceGroupService;
+import com.alekseysamoylov.serviceiii.service.WorkGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -25,18 +25,18 @@ public class WelcomeController {
     private CompanyPositionOnMapService companyPositionOnMapService;
     private TestCustomRepository testCustomRepository;
     private EnumDetailsService enumDetailsService;
-    private PriceGroupService priceGroupService;
+    private WorkGroupService workGroupService;
 
     @Autowired
     public WelcomeController(
             CompanyPositionOnMapService companyPositionOnMapService,
             TestCustomRepository testCustomRepository,
             EnumDetailsService enumDetailsService,
-            PriceGroupService priceGroupService) {
+            WorkGroupService workGroupService) {
         this.companyPositionOnMapService = companyPositionOnMapService;
         this.testCustomRepository = testCustomRepository;
         this.enumDetailsService = enumDetailsService;
-        this.priceGroupService = priceGroupService;
+        this.workGroupService = workGroupService;
     }
 
     @RequestMapping(value = "/")
@@ -61,8 +61,8 @@ public class WelcomeController {
     @CrossOrigin
     @RequestMapping(value = "/prices")
     @ResponseBody
-    public List<PriceGroup> getPrices() {
-        return priceGroupService.findAllFetchLazy();
+    public List<WorkGroup> getPrices() {
+        return workGroupService.findAllFetchLazy();
     }
 
 

@@ -10,10 +10,10 @@ import javax.persistence.*;
  * Created by Aleksey Samoylov on 29.12.2015.
  */
 @Entity
-@Table(name = "price")
+@Table(name = "work")
 @Getter
 @Setter
-public class Price {
+public class Work {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,17 +30,17 @@ public class Price {
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "price_group_id", nullable = false)
-    private PriceGroup priceGroup;
+    @JoinColumn(name = "work_group_id", nullable = false)
+    private WorkGroup workGroup;
 
     @Override
     public String toString() {
-        return "Price{" +
+        return "Work{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", value='" + value + '\'' +
                 ", details='" + details + '\'' +
-                ", priceGroup=" + priceGroup.getTitle() +
+                ", workGroup=" + workGroup.getTitle() +
                 '}';
     }
 }

@@ -1,6 +1,6 @@
 package com.alekseysamoylov.serviceiii.repository;
 
-import com.alekseysamoylov.serviceiii.entity.PriceGroup;
+import com.alekseysamoylov.serviceiii.entity.WorkGroup;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,14 +13,14 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class PriceGroupRepositoryImpl implements PriceGroupRepository {
+public class WorkGroupRepositoryImpl implements WorkGroupRepository {
 
     @PersistenceContext
     private EntityManager entityManager;
 
     @Override
     @Transactional(readOnly = true)
-    public List<PriceGroup> findAllFetchLazy() {
-        return entityManager.createNamedQuery("PriceGroup.findAllFetchLazy", PriceGroup.class).getResultList();
+    public List<WorkGroup> findAllFetchLazy() {
+        return entityManager.createNamedQuery("WorkGroup.findAllFetchLazy", WorkGroup.class).getResultList();
     }
 }

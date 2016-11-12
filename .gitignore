@@ -7,3 +7,4 @@ out/
 /src/test/resources/database.properties
 /db/changelog/liquibase.properties
 .idea/workspace.xml
+/db/liquibase.jar
