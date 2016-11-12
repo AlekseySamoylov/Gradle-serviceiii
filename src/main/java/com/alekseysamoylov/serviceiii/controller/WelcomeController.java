@@ -59,11 +59,18 @@ public class WelcomeController {
     }
 
     @CrossOrigin
-    @RequestMapping(value = "/prices")
+    @RequestMapping(value = "/works")
     @ResponseBody
-    public List<WorkGroup> getPrices() {
+    public List<WorkGroup> getWorks() {
         return workGroupService.findAllFetchLazy();
     }
+
+//    @CrossOrigin
+//    @RequestMapping(value = "/workGroups")
+//    @ResponseBody
+//    public List<WorkGroup> getWorkGroups() {
+//        return workGroupService.findAll();
+//    }
 
 
     @CrossOrigin

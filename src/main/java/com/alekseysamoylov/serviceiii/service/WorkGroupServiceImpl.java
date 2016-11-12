@@ -30,4 +30,9 @@ public class WorkGroupServiceImpl implements WorkGroupService {
     public List<WorkGroup> findAllFetchLazy() {
         return workGroupRepository.findAllFetchLazy();
     }
+
+    @Override
+    public List<WorkGroup> findAll() {
+        return workGroupRepository.findAll();
+    }
 }

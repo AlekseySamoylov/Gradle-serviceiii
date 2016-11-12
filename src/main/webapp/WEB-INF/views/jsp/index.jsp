@@ -22,8 +22,11 @@
 <spring:url value="/enums" var="enumsUrl"/>
 <a href="${enumsUrl}">Enums details</a>
 
-<spring:url value="/prices" var="pricesUrl"/>
-<a href="${pricesUrl}">Prices</a>
+<spring:url value="/works" var="worksUrl"/>
+<a href="${worksUrl}">Works</a>
+
+<spring:url value="/workGroups" var="workGroupsUrl"/>
+<a href="${workGroupsUrl}">WorkGroups</a>
 
 <script src="${coreJs}"></script>
 <script src="${bootstrapJs}"></script>

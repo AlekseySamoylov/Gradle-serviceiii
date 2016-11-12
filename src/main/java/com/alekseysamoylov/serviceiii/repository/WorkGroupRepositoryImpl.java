@@ -23,4 +23,9 @@ public class WorkGroupRepositoryImpl implements WorkGroupRepository {
     public List<WorkGroup> findAllFetchLazy() {
         return entityManager.createNamedQuery("WorkGroup.findAllFetchLazy", WorkGroup.class).getResultList();
     }
+
+    @Override
+    public List<WorkGroup> findAll() {
+        return entityManager.createNamedQuery("WorkGroup.findAll", WorkGroup.class).getResultList();
+    }
 }

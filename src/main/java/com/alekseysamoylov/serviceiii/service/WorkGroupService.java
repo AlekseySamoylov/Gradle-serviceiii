@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface WorkGroupService {
     List<WorkGroup> findAllFetchLazy();
+
+    List<WorkGroup> findAll();
 }
