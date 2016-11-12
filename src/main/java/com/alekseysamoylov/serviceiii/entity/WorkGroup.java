@@ -1,5 +1,6 @@
 package com.alekseysamoylov.serviceiii.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -43,6 +44,7 @@ public class WorkGroup implements Serializable, CachableEntity {
     @Column(name = "title")
     private String title;
 
+    @JsonIgnore
     @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "workGroup", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Work> works;

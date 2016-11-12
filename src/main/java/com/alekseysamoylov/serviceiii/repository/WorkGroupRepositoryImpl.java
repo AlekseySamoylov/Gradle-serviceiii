@@ -25,6 +25,7 @@ public class WorkGroupRepositoryImpl implements WorkGroupRepository {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<WorkGroup> findAll() {
         return entityManager.createNamedQuery("WorkGroup.findAll", WorkGroup.class).getResultList();
     }

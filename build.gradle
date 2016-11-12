@@ -54,6 +54,9 @@ dependencies {
     // Json
     compile "org.apache.geronimo.specs:geronimo-servlet_3.0_spec:1.0"
     compile "com.fasterxml.jackson.core:jackson-databind:2.7.1"
+    compile "com.fasterxml.jackson.core:jackson-annotations:2.7.1"
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-hibernate5', version: '2.8.1'
+
 
     // Test
     compile "org.testng:testng:6.9.10"
@@ -62,6 +65,8 @@ dependencies {
 
     // Other
     compile "org.apache.commons:commons-lang3:3.4"
+    compile "org.apache.commons:commons-io:1.3.2"
+    compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.8.3'
     provided "org.projectlombok:lombok:1.16.6"
 
 }
