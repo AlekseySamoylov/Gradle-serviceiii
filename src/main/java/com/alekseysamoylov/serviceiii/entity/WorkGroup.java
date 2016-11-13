@@ -18,11 +18,6 @@ import java.util.List;
 @Table(name = "work_group")
 @Getter
 @Setter
-@NamedQueries({
-        @NamedQuery(name = "WorkGroup.findAllFetchLazy", query = "select pg from WorkGroup pg left join fetch pg.works pr"),
-        @NamedQuery(name = "WorkGroup.findAll", query = "select pg from WorkGroup pg")
-
-})
 @JsonIgnoreProperties({
         "cacheNames"
 })

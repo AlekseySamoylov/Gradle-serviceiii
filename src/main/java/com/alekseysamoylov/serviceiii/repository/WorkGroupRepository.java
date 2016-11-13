@@ -1,14 +1,10 @@
 package com.alekseysamoylov.serviceiii.repository;
 
 import com.alekseysamoylov.serviceiii.entity.WorkGroup;
-
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * Created by Aleksey Samoylov on 29.12.2015.
  */
-public interface WorkGroupRepository {
-    List<WorkGroup> findAllFetchLazy();
-
-    List<WorkGroup> findAll();
+public interface WorkGroupRepository extends JpaRepository<WorkGroup, Long>, WorkGroupRepositoryCustom {
 }

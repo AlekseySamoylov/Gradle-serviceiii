@@ -19,19 +19,26 @@ import java.util.List;
 public class WorkGroupServiceImpl implements WorkGroupService {
 
     private WorkGroupRepository workGroupRepository;
+    // private WorkGroupRepositoryCustom workGroupRepositoryCustom;
 
     @Autowired
-    public WorkGroupServiceImpl(WorkGroupRepository workGroupRepository) {
+    public WorkGroupServiceImpl(WorkGroupRepository workGroupRepository
+                                //, WorkGroupRepositoryCustom workGroupRepositoryCustom
+    ) {
         this.workGroupRepository = workGroupRepository;
+        // this.workGroupRepositoryCustom = workGroupRepositoryCustom;
     }
 
     @Override
     @Cacheable
     public List<WorkGroup> findAllFetchLazy() {
         return workGroupRepository.findAllFetchLazy();
+
+        //  return workGroupRepositoryCustom.findAllFetchLazy();
     }
 
     @Override
+    @Cacheable
     public List<WorkGroup> findAll() {
         return workGroupRepository.findAll();
     }

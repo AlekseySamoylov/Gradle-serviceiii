@@ -18,12 +18,18 @@
 
 <spring:url value="/coordinates" var="coordinatesUrl"/>
 <a href="${coordinatesUrl}">Coordinates</a>
-
+<br/>
 <spring:url value="/enums" var="enumsUrl"/>
 <a href="${enumsUrl}">Enums details</a>
+<br/>
 
 <spring:url value="/works" var="worksUrl"/>
 <a href="${worksUrl}">Works</a>
+<br/>
+
+<spring:url value="/prices" var="pricesUrl"/>
+<a href="${pricesUrl}">Prices</a>
+<br/>
 
 <spring:url value="/workGroups" var="workGroupsUrl"/>
 <a href="${workGroupsUrl}">WorkGroups</a>

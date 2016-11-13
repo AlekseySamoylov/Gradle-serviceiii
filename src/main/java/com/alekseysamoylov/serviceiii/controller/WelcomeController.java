@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by alekseysamoylov on 11/12/16.
  */
 @Controller
-public class HtmlController {
+public class WelcomeController {
     @RequestMapping(value = "/")
     public String goWelcome() {
         return "index";

@@ -17,4 +17,9 @@ public class WorkGroupRepositoryImplTest extends BaseRepositoryTest {
         Assert.assertNotNull(workGroupRepository.findAllFetchLazy().get(0).getWorks().get(0));
     }
 
+    @Test
+    public void testFindAll() throws Exception {
+        Assert.assertNotNull(workGroupRepository.findAll());
+    }
+
 }

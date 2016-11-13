@@ -19,6 +19,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="serviceiii_generated" target="1.8" />
       <module name="serviceiii_integTest" target="1.5" />
       <module name="serviceiii_main" target="1.8" />
       <module name="serviceiii_test" target="1.8" />
