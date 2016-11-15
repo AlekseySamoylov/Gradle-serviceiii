@@ -28,8 +28,8 @@
 <a href="${worksUrl}">Works</a>
 <br/>
 
-<p>/rest/works/{id} - для получения работы</p>
-<p>/rest/works POST запрос для сохранения новой работы</p>
+<p>/rest/work/{id} - для получения работы</p>
+<p>/rest/work POST запрос для сохранения новой работы</p>
 
 <spring:url value="/rest/workGroups" var="workGroupsUrl"/>
 <a href="${workGroupsUrl}">WorkGroups</a>
