@@ -18,34 +18,7 @@ ext {
     generatedSourcesDir = file("generated")
     querydslVersion = "3.7.4"
 }
-sourceSets {
-    main {
-        java {
-            srcDir "src/generated"
-            srcDir generatedSourcesDir
-        }
-    }
-}
-configurations {
-    querydslapt
-}
-task generateQueryDSL(type: JavaCompile, group: 'build', description: 'Generates the QueryDSL query types') {
-    source = sourceSets.main.java
-    classpath = configurations.compile + configurations.querydslapt
-    options.compilerArgs = [
-            "-proc:only",
-            "-processor", "com.mysema.query.apt.jpa.JPAAnnotationProcessor"
-    ]
-    destinationDir = generatedSourcesDir
-}
-compileJava {
-    doFirst {
-        generatedSourcesDir.mkdirs();
-    }
-    options.compilerArgs += ['-s', generatedSourcesDir]
 
-    dependsOn generateQueryDSL
-}
 
 repositories {
     mavenLocal()
@@ -120,3 +93,31 @@ jettyRunWar{
     httpPort = 8080
 }
 
+sourceSets {
+    main {
+        java {
+            srcDir "src/generated"
+            srcDir generatedSourcesDir
+        }
+    }
+}
+configurations {
+    querydslapt
+}
+task generateQueryDSL(type: JavaCompile, group: 'build', description: 'Generates the QueryDSL query types') {
+    source = sourceSets.main.java
+    classpath = configurations.compile + configurations.querydslapt
+    options.compilerArgs = [
+            "-proc:only",
+            "-processor", "com.mysema.query.apt.jpa.JPAAnnotationProcessor"
+    ]
+    destinationDir = generatedSourcesDir
+}
+compileJava {
+    doFirst {
+        generatedSourcesDir.mkdirs();
+    }
+    options.compilerArgs += ['-s', generatedSourcesDir]
+
+    dependsOn generateQueryDSL
+}

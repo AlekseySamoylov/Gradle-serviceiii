@@ -15,6 +15,5 @@
 
 	<context:component-scan base-package=
 									"com.alekseysamoylov.serviceiii.service,
-                                    com.alekseysamoylov.serviceiii.repository"
-	/>
+                                    com.alekseysamoylov.serviceiii.repository"/>
 </beans>

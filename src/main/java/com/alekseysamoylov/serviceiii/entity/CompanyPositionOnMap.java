@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * Created by Aleksey Samoylov on 29.12.2015.
+ * Позиция организации на карте
  */
 @Getter
 @Setter
@@ -91,7 +92,7 @@ public class CompanyPositionOnMap implements Serializable, CachableEntity {
     @Override
     public int hashCode() {
         int hashCode = 17;
-        hashCode += null == getId() ? 0 : getId().hashCode() * 31;
+        hashCode += null == getId() ? 0 : getId().hashCode() * 35;
         return hashCode;
     }
 

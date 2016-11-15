@@ -19,14 +19,10 @@ import java.util.List;
 public class WorkGroupServiceImpl implements WorkGroupService {
 
     private WorkGroupRepository workGroupRepository;
-    // private WorkGroupRepositoryCustom workGroupRepositoryCustom;
 
     @Autowired
-    public WorkGroupServiceImpl(WorkGroupRepository workGroupRepository
-                                //, WorkGroupRepositoryCustom workGroupRepositoryCustom
-    ) {
+    public WorkGroupServiceImpl(WorkGroupRepository workGroupRepository) {
         this.workGroupRepository = workGroupRepository;
-        // this.workGroupRepositoryCustom = workGroupRepositoryCustom;
     }
 
     @Override
@@ -34,7 +30,6 @@ public class WorkGroupServiceImpl implements WorkGroupService {
     public List<WorkGroup> findAllFetchLazy() {
         return workGroupRepository.findAllFetchLazy();
 
-        //  return workGroupRepositoryCustom.findAllFetchLazy();
     }
 
     @Override

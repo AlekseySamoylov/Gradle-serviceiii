@@ -7,6 +7,7 @@ import lombok.Setter;
 
 /**
  * Created by alekseysamoylov on 11/12/16.
+ * Список названий групп работ/услуг с id, для отображения на клиенте
  */
 @NoArgsConstructor
 @AllArgsConstructor
@@ -33,5 +34,13 @@ public class WorkGroupTitle {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (title != null ? title.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "WorkGroupTitle{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                '}';
     }
 }

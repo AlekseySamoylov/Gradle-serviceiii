@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -16,23 +17,23 @@
 <spring:url value="/resources/core/css/hello.js" var="coreJs" />
 <spring:url value="/resources/core/css/bootstrap.min.js" var="bootstrapJs" />
 
-<spring:url value="/coordinates" var="coordinatesUrl"/>
+<spring:url value="/rest/coordinates" var="coordinatesUrl"/>
 <a href="${coordinatesUrl}">Coordinates</a>
 <br/>
-<spring:url value="/enums" var="enumsUrl"/>
+<spring:url value="/rest/enums" var="enumsUrl"/>
 <a href="${enumsUrl}">Enums details</a>
 <br/>
 
-<spring:url value="/works" var="worksUrl"/>
+<spring:url value="/rest/works" var="worksUrl"/>
 <a href="${worksUrl}">Works</a>
 <br/>
 
-<spring:url value="/prices" var="pricesUrl"/>
-<a href="${pricesUrl}">Prices</a>
-<br/>
+<p>/rest/works/{id} - для получения работы</p>
+<p>/rest/works POST запрос для сохранения новой работы</p>
 
-<spring:url value="/workGroups" var="workGroupsUrl"/>
+<spring:url value="/rest/workGroups" var="workGroupsUrl"/>
 <a href="${workGroupsUrl}">WorkGroups</a>
+
 
 <script src="${coreJs}"></script>
 <script src="${bootstrapJs}"></script>
