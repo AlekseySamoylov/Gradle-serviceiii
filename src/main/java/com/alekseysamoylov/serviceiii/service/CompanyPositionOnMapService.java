@@ -6,7 +6,12 @@ import java.util.List;
 
 /**
  * Created by Aleksey Samoylov on 29.12.2015.
+ *
  */
 public interface CompanyPositionOnMapService {
+
+    /**
+     * @return Возвращает список расположений компаний на карте
+     */
     List<CompanyPositionOnMap> findAll();
 }

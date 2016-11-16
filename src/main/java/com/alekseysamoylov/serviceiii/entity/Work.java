@@ -66,7 +66,6 @@ public class Work {
                 ", title='" + title + '\'' +
                 ", value='" + value + '\'' +
                 ", details='" + details + '\'' +
-                ", workGroup=" + workGroup.getTitle() +
                 '}';
     }
 }

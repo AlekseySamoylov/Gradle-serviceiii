@@ -50,7 +50,7 @@ public class WorkRestController {
     @CrossOrigin
     @RequestMapping(value = "/enums")
     public Map<String, String> getEnumDetails() {
-        return enumDetailsService.getEnumDetais();
+        return enumDetailsService.getEnumDetails();
     }
 
     @CrossOrigin
@@ -64,7 +64,6 @@ public class WorkRestController {
     public Work findWork(@PathVariable Long workId) {
         return workService.findOne(workId);
     }
-
 
 
     @CrossOrigin

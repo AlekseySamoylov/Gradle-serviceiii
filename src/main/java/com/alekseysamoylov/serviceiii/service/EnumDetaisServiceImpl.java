@@ -13,7 +13,7 @@ import java.util.Map;
 @Service
 public class EnumDetaisServiceImpl implements EnumDetailsService {
     @Override
-    public Map<String, String> getEnumDetais() {
+    public Map<String, String> getEnumDetails() {
         Map<String, String> enumMap = new HashMap<>();
         for (CompanyType companyType : CompanyType.values()) {
             enumMap.put(companyType.toString(), companyType.getName());

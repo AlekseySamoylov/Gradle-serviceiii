@@ -4,10 +4,11 @@ import com.alekseysamoylov.serviceiii.util.CustomIntegerEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+/**
+ * Тип организации
+ */
 @Getter
 @AllArgsConstructor
-//@JsonFormat(shape = JsonFormat.Shape.OBJECT)
-//@JsonDeserialize(using = CustomEnumDeserializer.class)
 public enum CompanyType implements CustomIntegerEnum {
 
     CAR_SERVICE(0),

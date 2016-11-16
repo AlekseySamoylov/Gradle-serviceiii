@@ -27,6 +27,7 @@ import java.util.List;
 
 /**
  * Created by Aleksey Samoylov on 29.12.2015.
+ * Реализация
  */
 @Repository
 public class QueryDslRepositoryImpl implements QueryDslRepository {

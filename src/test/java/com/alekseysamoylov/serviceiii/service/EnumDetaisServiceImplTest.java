@@ -10,7 +10,7 @@ public class EnumDetaisServiceImplTest {
     @Test
     public void testGetEnumDetais() throws Exception {
         EnumDetailsService enumDetailsService = new EnumDetaisServiceImpl();
-        Assert.assertTrue(enumDetailsService.getEnumDetais().size() > 0);
+        Assert.assertTrue(enumDetailsService.getEnumDetails().size() > 0);
     }
 
 }

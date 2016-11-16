@@ -14,18 +14,11 @@ configurations {
 
 }
 
-ext {
-    generatedSourcesDir = file("generated")
-    querydslVersion = "3.7.4"
-}
-
-
 repositories {
     mavenLocal()
     mavenCentral()
     jcenter()
 }
-
 
 dependencies {
     // Logging
@@ -82,15 +75,10 @@ dependencies {
 
 }
 
-// Embeded Jetty for testing
-jettyRun{
-    contextPath = "serviceiii"
-    httpPort = 8080
-}
-
-jettyRunWar{
-    contextPath = "serviceiii"
-    httpPort = 8080
+// Генерация классов QueryDsl
+ext {
+    generatedSourcesDir = file("generated")
+    querydslVersion = "3.7.4"
 }
 
 sourceSets {
@@ -120,4 +108,15 @@ compileJava {
     options.compilerArgs += ['-s', generatedSourcesDir]
 
     dependsOn generateQueryDSL
+}
+
+// Встроенный Jetty
+jettyRun {
+    contextPath = "serviceiii"
+    httpPort = 8080
+}
+
+jettyRunWar {
+    contextPath = "serviceiii"
+    httpPort = 8080
 }
