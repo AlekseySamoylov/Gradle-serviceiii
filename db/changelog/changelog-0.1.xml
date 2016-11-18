@@ -61,14 +61,14 @@
             <column name="title" type="varchar2(256)" remarks="Заголовок">
                 <constraints nullable="false"/>
             </column>
-            <column name="value" type="varchar2(256)" remarks="Цена"/>
+            <column name="price" type="number(17,2)" remarks="Цена"/>
             <column name="details" type="varchar2(1024)" remarks="Описание услуги"/>
         </createTable>
     </changeSet>
     <changeSet id="0.1-asamoylov-9" author="asamoylov">
         <createIndex tableName="work" indexName="idx_work">
             <column name="title"/>
-            <column name="value"/>
+            <column name="price"/>
         </createIndex>
     </changeSet>
     <changeSet id="0.1-asamoylov-10" author="asamoylov">
@@ -83,7 +83,7 @@
             <column name="id">1</column>
             <column name="work_group_id">1</column>
             <column name="title">Ремонт ГБЦ</column>
-            <column name="value">6999</column>
+            <column name="price">6999</column>
             <column name="details">С заменой расходников</column>
         </insert>
     </changeSet>
@@ -92,7 +92,7 @@
             <column name="id">2</column>
             <column name="work_group_id">1</column>
             <column name="title">Ремонт ДВС</column>
-            <column name="value">7999</column>
+            <column name="price">7999</column>
             <column name="details">С заменой цепи ГРМ</column>
         </insert>
     </changeSet>
@@ -101,7 +101,7 @@
             <column name="id">3</column>
             <column name="work_group_id">2</column>
             <column name="title">Замена шаровой</column>
-            <column name="value">599</column>
+            <column name="price">599</column>
             <column name="details">Ремонт...</column>
         </insert>
     </changeSet>
@@ -110,7 +110,7 @@
             <column name="id">4</column>
             <column name="work_group_id">3</column>
             <column name="title">Замена сайлентблоков</column>
-            <column name="value">от 2999 рублей</column>
+            <column name="price">2999</column>
             <column name="details">Задних рычагов</column>
         </insert>
     </changeSet>
@@ -119,7 +119,7 @@
             <column name="id">5</column>
             <column name="work_group_id">2</column>
             <column name="title">Ремонт главного тормозного цилиндра</column>
-            <column name="value">999</column>
+            <column name="price">999</column>
             <column name="details">Нормально</column>
         </insert>
     </changeSet>
@@ -128,7 +128,7 @@
             <column name="id">6</column>
             <column name="work_group_id">1</column>
             <column name="title">Замена ТНВД</column>
-            <column name="value">от 5999 рублей</column>
+            <column name="price">5999</column>
             <column name="details">Ремонт</column>
         </insert>
     </changeSet>
@@ -137,7 +137,7 @@
             <column name="id">7</column>
             <column name="work_group_id">1</column>
             <column name="title">Ремонт форсунок</column>
-            <column name="value">999</column>
+            <column name="price">999</column>
             <column name="details">Работа</column>
         </insert>
     </changeSet>
@@ -146,7 +146,7 @@
             <column name="id">8</column>
             <column name="work_group_id">3</column>
             <column name="title">Ремонт стартера</column>
-            <column name="value">1999</column>
+            <column name="price">1999</column>
             <column name="details">Все ок</column>
         </insert>
     </changeSet>
@@ -155,7 +155,7 @@
             <column name="id">9</column>
             <column name="work_group_id">3</column>
             <column name="title">Ремонт генератора</column>
-            <column name="value">2999</column>
+            <column name="price">2999</column>
             <column name="details">Замена щеток и подшипников</column>
         </insert>
     </changeSet>
@@ -164,7 +164,7 @@
             <column name="id">10</column>
             <column name="work_group_id">4</column>
             <column name="title">Переобувка 16 радиус</column>
-            <column name="value">1299 рублей</column>
+            <column name="price">1299</column>
             <column name="details">Балансировка + пакеты для колес</column>
         </insert>
     </changeSet>
@@ -173,7 +173,7 @@
             <column name="id">11</column>
             <column name="work_group_id">5</column>
             <column name="title">Диагностика подвески</column>
-            <column name="value">500 рублей</column>
+            <column name="price">500</column>
             <column name="details">Проверка всех</column>
         </insert>
     </changeSet>

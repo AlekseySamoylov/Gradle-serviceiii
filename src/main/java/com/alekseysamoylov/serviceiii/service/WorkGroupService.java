@@ -15,8 +15,10 @@ public interface WorkGroupService {
      */
     List<WorkGroup> findAllFetchLazy();
 
-    /**
-     * @return Возвращает все группы работ
-     */
     List<WorkGroup> findAll();
+
+    /**
+     * @return Возвращает все группу работ по id со всеми ленивыми полями
+     */
+    WorkGroup findOneFetchLazy(Long id);
 }

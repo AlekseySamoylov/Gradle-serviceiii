@@ -40,4 +40,17 @@ public class WorkGroupRepositoryImpl implements WorkGroupRepositoryCustom {
         return queryDslRepository.findAll(metadata, qWorkGroup);
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public WorkGroup findOneFetchLazy(Long id) {
+        QWorkGroup qWorkGroup = QWorkGroup.workGroup;
+        QWork qWork = QWork.work;
+        QueryDslMetadata metadata = new QueryDslMetadata();
+        metadata.from(qWorkGroup);
+        metadata.leftJoin(qWorkGroup.works, qWork).fetch();
+        metadata.where(qWorkGroup.id.eq(id));
+
+        return queryDslRepository.findOne(metadata, qWorkGroup);
+    }
+
 }

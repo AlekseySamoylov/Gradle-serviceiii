@@ -10,4 +10,6 @@ import java.util.List;
  */
 public interface WorkGroupRepositoryCustom {
     List<WorkGroup> findAllFetchLazy();
+
+    WorkGroup findOneFetchLazy(Long id);
 }

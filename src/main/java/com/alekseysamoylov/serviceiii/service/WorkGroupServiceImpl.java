@@ -37,4 +37,10 @@ public class WorkGroupServiceImpl implements WorkGroupService {
     public List<WorkGroup> findAll() {
         return workGroupRepository.findAll();
     }
+
+    @Override
+    @Cacheable
+    public WorkGroup findOneFetchLazy(Long id) {
+        return workGroupRepository.findOneFetchLazy(id);
+    }
 }

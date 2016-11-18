@@ -7,7 +7,6 @@ import com.alekseysamoylov.serviceiii.model.WorkGroupTitle;
 import com.alekseysamoylov.serviceiii.service.*;
 import lombok.extern.apachecommons.CommonsLog;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -60,14 +59,14 @@ public class WorkRestController {
     }
 
     @CrossOrigin
-    @RequestMapping(value = "/work/{workId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/works/{workId}", method = RequestMethod.GET)
     public Work findWork(@PathVariable Long workId) {
         return workService.findOne(workId);
     }
 
 
     @CrossOrigin
-    @RequestMapping(value = "/work", method = RequestMethod.POST)
+    @RequestMapping(value = "/works", method = RequestMethod.POST)
     public String saveWork(@RequestBody Work work) {
         workService.save(work);
         return "redirect:/works";
@@ -75,10 +74,17 @@ public class WorkRestController {
 
     @CrossOrigin
     @RequestMapping(value = "/workGroups", method = RequestMethod.GET)
-    @Transactional
     public List<WorkGroupTitle> findWorkGroups() {
         return workGroupTitleService.findAll();
     }
+
+    @CrossOrigin
+    @RequestMapping(value = "/workGroups/{workGroupId}", method = RequestMethod.GET)
+    public WorkGroup findOneWorkGroup(@PathVariable Long workGroupId) {
+        return workGroupService.findOneFetchLazy(workGroupId);
+    }
+
+
 
 
 }
