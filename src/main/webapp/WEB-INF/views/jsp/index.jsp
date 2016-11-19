@@ -31,6 +31,8 @@
 <p>/rest/works/{id} - для получения работы</p>
 <p>/rest/works POST запрос для сохранения новой работы</p>
 <p>/rest/workGroups/{id} - для получения группы работ (может не работать)</p>
+<p>Картинки с именами, соответствующими id группы работ по адресу:</p>
+<p>/files/staticImages/{imageName}</p>
 
 <spring:url value="/rest/workGroups" var="workGroupsUrl"/>
 <a href="${workGroupsUrl}">WorkGroups</a>

@@ -1,10 +1,12 @@
-package com.alekseysamoylov.serviceiii.controller;
+package com.alekseysamoylov.serviceiii.controller.rest;
 
-import com.alekseysamoylov.serviceiii.entity.CompanyPositionOnMap;
 import com.alekseysamoylov.serviceiii.entity.Work;
 import com.alekseysamoylov.serviceiii.entity.WorkGroup;
 import com.alekseysamoylov.serviceiii.model.WorkGroupTitle;
-import com.alekseysamoylov.serviceiii.service.*;
+import com.alekseysamoylov.serviceiii.service.EnumDetailsService;
+import com.alekseysamoylov.serviceiii.service.WorkGroupService;
+import com.alekseysamoylov.serviceiii.service.WorkGroupTitleService;
+import com.alekseysamoylov.serviceiii.service.WorkService;
 import lombok.extern.apachecommons.CommonsLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +16,7 @@ import java.util.Map;
 
 /**
  * Created by Aleksey Samoylov on 29.12.2015.
+ *
  * Контроллер Rest
  */
 @RestController
@@ -21,29 +24,20 @@ import java.util.Map;
 @RequestMapping(value = "/rest")
 public class WorkRestController {
 
-    private CompanyPositionOnMapService companyPositionOnMapService;
     private EnumDetailsService enumDetailsService;
     private WorkGroupService workGroupService;
     private WorkGroupTitleService workGroupTitleService;
     private WorkService workService;
 
     @Autowired
-    public WorkRestController(CompanyPositionOnMapService companyPositionOnMapService,
-                              EnumDetailsService enumDetailsService,
+    public WorkRestController(EnumDetailsService enumDetailsService,
                               WorkGroupService workGroupService,
                               WorkGroupTitleService workGroupTitleService,
                               WorkService workService) {
-        this.companyPositionOnMapService = companyPositionOnMapService;
         this.enumDetailsService = enumDetailsService;
         this.workGroupService = workGroupService;
         this.workGroupTitleService = workGroupTitleService;
         this.workService = workService;
-    }
-
-    @CrossOrigin
-    @RequestMapping(value = "/coordinates")
-    public List<CompanyPositionOnMap> findCoordinates() {
-        return companyPositionOnMapService.findAll();
     }
 
     @CrossOrigin

@@ -1,4 +1,4 @@
-package com.alekseysamoylov.serviceiii.controller;
+package com.alekseysamoylov.serviceiii.controller.webpage;
 
 import com.alekseysamoylov.serviceiii.entity.WorkGroup;
 import com.alekseysamoylov.serviceiii.service.WorkGroupService;
