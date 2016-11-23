@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Aleksey Samoylov on 29.12.2015.
@@ -37,7 +38,7 @@ public class WorkGroupRepositoryImpl implements WorkGroupRepositoryCustom {
         metadata.from(qWorkGroup);
         metadata.leftJoin(qWorkGroup.works, qWork).fetch();
 
-        return queryDslRepository.findAll(metadata, qWorkGroup);
+        return queryDslRepository.findAll(metadata, qWorkGroup).stream().distinct().collect(Collectors.toList());
     }
 
     @Override
