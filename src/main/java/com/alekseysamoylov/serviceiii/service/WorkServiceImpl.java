@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by alekseysamoylov on 11/15/16.
+ * Реализация {@link WorkService}
  */
 @Service
 public class WorkServiceImpl implements WorkService {
@@ -20,7 +20,7 @@ public class WorkServiceImpl implements WorkService {
 
     @Override
     public Work save(Work work) {
-        return workRepository.save(work);
+        return workRepository.saveAndFlush(work);
     }
 
     @Override
