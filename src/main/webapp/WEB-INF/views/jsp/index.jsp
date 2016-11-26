@@ -28,11 +28,18 @@
 <a href="${worksUrl}">Works</a>
 <br/>
 
-<p>/rest/works/{id} - для получения работы</p>
+<p>/rest/works/{id} - GET для получения работы</p>
+<p>/rest/works/{id} - DELEte для получения работы</p>
 <p>/rest/works POST запрос для сохранения новой работы</p>
-<p>/rest/workGroups/{id} - для получения группы работ (может не работать)</p>
+<p>/rest/workGroups/{id} - для получения группы работ</p>
 <p>Картинки с именами, соответствующими id группы работ по адресу:</p>
 <p>/files/staticImages/{imageName}</p>
+<pre>
+    Сохранение работы пример Json для POST запроса:
+    {"title":"Новая работа", "price":5000, "details":"Подробности", "workGroup":{"id":2}}
+    Обновление работы пример Json для POST запроса:
+    {"id":14, "title":"Ремонт ТНВД2", "price":5000, "details":"Очень ответственная работа2", "workGroup":{"id":1}}
+</pre>
 
 <spring:url value="/rest/workGroups" var="workGroupsUrl"/>
 <a href="${workGroupsUrl}">WorkGroups</a>

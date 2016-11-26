@@ -9,12 +9,19 @@ import com.alekseysamoylov.serviceiii.entity.Work;
 public interface WorkService {
 
     /**
-     * Сохраняет новую Работу и возвращает ее с присвоенным id
+     * Сохраняет новую Работу или обновляет существующую Работу и возвращает ее с присвоенным id
      *
      * @param work новая работа
      * @return новая работа с присвоенным id
      */
     Work save(Work work);
+
+    /**
+     * Удаляет работу
+     *
+     * @param id работы
+     */
+    void delete(Long id);
 
     /**
      * Возвращает работу по id

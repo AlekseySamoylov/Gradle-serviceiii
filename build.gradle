@@ -1,7 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'idea'
-apply plugin: 'jetty'
+
 
 configurations {
     warlib
@@ -22,6 +22,7 @@ dependencies {
     def hibernateVersion = '5.1.0.Final'
     def queryDslVersion = '3.7.4'
     def jacksonVersion = '2.8.1'
+    def jsonPathVersion = '0.8.1'
 
     // Logging
     compile "log4j:log4j:1.2.17"
@@ -70,12 +71,15 @@ dependencies {
 
 
     // Test
-    compile "org.testng:testng:6.9.10"
-    compile "org.springframework:spring-test:$springVersion"
-    compile "org.mockito:mockito-all:1.10.19"
+    testCompile "junit:junit:4.11"
+    testCompile "org.testng:testng:6.9.10"
+    testCompile "org.springframework:spring-test:$springVersion"
+    testCompile "org.mockito:mockito-all:1.10.19"
 
-    // MVC Controllers test
-    compile "org.hamcrest:hamcrest-all:1.3"
+    // Http methods test
+    testCompile "org.hamcrest:hamcrest-all:1.3"
+    testCompile "com.jayway.jsonpath:json-path:$jsonPathVersion"
+    testCompile "com.jayway.jsonpath:json-path-assert:$jsonPathVersion"
 
     // Other
     compile "org.apache.commons:commons-lang3:3.4"
@@ -104,7 +108,7 @@ configurations {
 }
 task generateQueryDSL(type: JavaCompile, group: 'build', description: 'Generates the QueryDSL query types') {
     source = sourceSets.main.java
-    classpath = configurations.compile + configurations.querydslapt as Class<Classpath>
+    classpath = configurations.compile + configurations.querydslapt
     options.compilerArgs = [
             "-proc:only",
             "-processor", "com.mysema.query.apt.jpa.JPAAnnotationProcessor"
@@ -119,16 +123,4 @@ compileJava {
 
     dependsOn generateQueryDSL
 }
-
-// Встроенный Jetty
-jettyRun {
-    contextPath = "serviceiii"
-    httpPort = 8080
-}
-
-jettyRunWar {
-    contextPath = "serviceiii"
-    httpPort = 8080
-}
-
 

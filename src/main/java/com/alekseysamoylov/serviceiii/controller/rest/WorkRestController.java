@@ -53,9 +53,9 @@ public class WorkRestController {
     }
 
     @CrossOrigin
-    @RequestMapping(value = "/works/{workId}", method = RequestMethod.GET)
-    public Work findWork(@PathVariable Long workId) {
-        return workService.findOne(workId);
+    @RequestMapping(value = "/works/{id}", method = RequestMethod.GET)
+    public Work findWork(@PathVariable Long id) {
+        return workService.findOne(id);
     }
 
 
@@ -63,6 +63,13 @@ public class WorkRestController {
     @RequestMapping(value = "/works", method = RequestMethod.POST)
     public String saveWork(@RequestBody Work work) {
         workService.save(work);
+        return "redirect:/works";
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "/works/{id}", method = RequestMethod.DELETE)
+    public String deleteWork(@PathVariable Long id) {
+        workService.delete(id);
         return "redirect:/works";
     }
 
@@ -78,6 +85,14 @@ public class WorkRestController {
         return workGroupService.findOneFetchLazy(workGroupId);
     }
 
+
+    @CrossOrigin
+    @RequestMapping(value = "/postTest", method = RequestMethod.POST)
+    public String saveString(@RequestBody Work work) {
+        System.out.println("hello work " + work);
+        System.out.println("hello id " + work.getWorkGroup().getId());
+        return "redirect:/";
+    }
 
 
 

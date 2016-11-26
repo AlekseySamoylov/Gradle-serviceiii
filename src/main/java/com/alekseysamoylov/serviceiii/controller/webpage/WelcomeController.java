@@ -29,6 +29,11 @@ public class WelcomeController {
         return "index";
     }
 
+    @RequestMapping(value = "/fileUpload")
+    public String goFileUpload() {
+        return "fileUpload";
+    }
+
 
     @CrossOrigin
     @RequestMapping(value = "/prices")
