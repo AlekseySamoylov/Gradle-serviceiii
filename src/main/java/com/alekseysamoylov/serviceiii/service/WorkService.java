@@ -2,6 +2,8 @@ package com.alekseysamoylov.serviceiii.service;
 
 import com.alekseysamoylov.serviceiii.entity.Work;
 
+import java.util.List;
+
 /**
  * Created by alekseysamoylov on 11/15/16.
  * Сервис для сущности Работа {@link Work}
@@ -29,4 +31,12 @@ public interface WorkService {
      * @return работа {@link Work}
      */
     Work findOne(Long id);
+
+    /**
+     * Возвращает список работ, определенной группы
+     *
+     * @param id группы работ
+     * @return список работ, определенной группы
+     */
+    List<Work> findByWorkGroupId(Long id);
 }

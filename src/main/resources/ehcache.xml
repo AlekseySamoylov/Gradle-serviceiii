@@ -9,8 +9,9 @@
     <!-- Кэш по умолчанию не используем, в этом случае если кэш с указанным именем не найден,
      то произойдет ошибка (также работает реализация кэша на WebSphere) -->
 
-    <cache name="companyPositionOnMap" eternal="true" maxElementsInMemory="500" overflowToDisk="false"/>
-    <cache name="workGroup" eternal="true" maxElementsInMemory="500" overflowToDisk="false"/>
+    <cache name="companyPositionOnMap" eternal="true" maxElementsInMemory="200" overflowToDisk="false"/>
+    <cache name="workGroup" eternal="true" maxElementsInMemory="200" overflowToDisk="false"/>
+    <cache name="work" eternal="true" maxElementsInMemory="400" overflowToDisk="false"/>
 
 
 </ehcache>

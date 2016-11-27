@@ -53,6 +53,12 @@ public class WorkRestController {
     }
 
     @CrossOrigin
+    @RequestMapping(value = "/worksByGroupId/{id}", method = RequestMethod.GET)
+    public List<Work> findWorksByGroupId(@PathVariable Long id) {
+        return workService.findByWorkGroupId(id);
+    }
+
+    @CrossOrigin
     @RequestMapping(value = "/works/{id}", method = RequestMethod.GET)
     public Work findWork(@PathVariable Long id) {
         return workService.findOne(id);

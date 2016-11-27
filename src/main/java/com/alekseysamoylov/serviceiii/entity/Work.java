@@ -1,10 +1,13 @@
 package com.alekseysamoylov.serviceiii.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -15,7 +18,19 @@ import java.math.BigDecimal;
 @Table(name = "work")
 @Getter
 @Setter
-public class Work {
+@JsonIgnoreProperties({
+        "cacheNames"
+})
+public class Work implements Serializable, CachableEntity {
+
+    @JsonDeserialize
+    public static final String CACHE_NAME = "work";
+
+    @Override
+    public String[] getCacheNames() {
+        return new String[]{CACHE_NAME};
+    }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -69,4 +84,6 @@ public class Work {
                 ", details='" + details + '\'' +
                 '}';
     }
+
+
 }
