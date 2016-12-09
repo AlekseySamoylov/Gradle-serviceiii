@@ -44,7 +44,9 @@
 
 <spring:url value="/rest/workGroups" var="workGroupsUrl"/>
 <a href="${workGroupsUrl}">WorkGroups</a>
-
+<br/>
+<spring:url value="/admin" var="adminUrl"/>
+<a href="${adminUrl}">AdminPanel</a>
 
 <script src="${coreJs}"></script>
 <script src="${bootstrapJs}"></script>

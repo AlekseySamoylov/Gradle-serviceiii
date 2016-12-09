@@ -2,6 +2,9 @@ apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'idea'
 
+apply plugin: 'eclipse-wtp'
+apply plugin: 'jetty'
+
 
 configurations {
     warlib
@@ -19,6 +22,7 @@ repositories {
 
 dependencies {
     def springVersion = '4.3.3.RELEASE'
+    def springSecurityVersion = '4.2.0.RELEASE'
     def hibernateVersion = '5.1.0.Final'
     def queryDslVersion = '3.7.4'
     def jacksonVersion = '2.8.1'
@@ -38,6 +42,13 @@ dependencies {
     compile "org.springframework:spring-orm:$springVersion"
     compile "org.springframework:spring-tx:$springVersion"
     compile "org.springframework:spring-aop:$springVersion"
+    // DELETE IF SPRING SECURITY WILL WORK compile "org.springframework:spring-context-support:$springVersion"
+
+    // Spring-security
+    compile "org.springframework.security:spring-security-core:$springSecurityVersion"
+    compile "org.springframework.security:spring-security-web:$springSecurityVersion"
+    compile "org.springframework.security:spring-security-config:$springSecurityVersion"
+    compile "org.springframework.security:spring-security-taglibs:$springSecurityVersion"
 
     // File Upload
     provided "javax:javaee-web-api:7.0"
@@ -122,5 +133,16 @@ compileJava {
     options.compilerArgs += ['-s', generatedSourcesDir]
 
     dependsOn generateQueryDSL
+}
+
+// Embeded Jetty for testing
+jettyRun {
+    contextPath = "serviceiii"
+    httpPort = 8080
+}
+
+jettyRunWar {
+    contextPath = "serviceiii"
+    httpPort = 8080
 }
 
