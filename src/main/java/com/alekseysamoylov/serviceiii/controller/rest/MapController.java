@@ -1,6 +1,6 @@
 package com.alekseysamoylov.serviceiii.controller.rest;
 
-import com.alekseysamoylov.serviceiii.entity.CompanyPositionOnMap;
+import com.alekseysamoylov.serviceiii.entity.company.CompanyPositionOnMap;
 import com.alekseysamoylov.serviceiii.service.CompanyPositionOnMapService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;

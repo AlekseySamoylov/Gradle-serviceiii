@@ -1,6 +1,6 @@
 package com.alekseysamoylov.serviceiii.repository;
 
-import com.alekseysamoylov.serviceiii.entity.CompanyPositionOnMap;
+import com.alekseysamoylov.serviceiii.entity.company.CompanyPositionOnMap;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

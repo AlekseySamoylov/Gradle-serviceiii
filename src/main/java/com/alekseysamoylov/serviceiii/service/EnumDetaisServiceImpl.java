@@ -1,6 +1,6 @@
 package com.alekseysamoylov.serviceiii.service;
 
-import com.alekseysamoylov.serviceiii.entity.CompanyType;
+import com.alekseysamoylov.serviceiii.entity.company.CompanyType;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;

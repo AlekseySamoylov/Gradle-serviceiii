@@ -1,6 +1,6 @@
 package com.alekseysamoylov.serviceiii.service;
 
-import com.alekseysamoylov.serviceiii.entity.CompanyPositionOnMap;
+import com.alekseysamoylov.serviceiii.entity.company.CompanyPositionOnMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;

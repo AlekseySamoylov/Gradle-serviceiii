@@ -1,7 +1,7 @@
 package com.alekseysamoylov.serviceiii.controller.rest;
 
-import com.alekseysamoylov.serviceiii.entity.Work;
-import com.alekseysamoylov.serviceiii.entity.WorkGroup;
+import com.alekseysamoylov.serviceiii.entity.work.Work;
+import com.alekseysamoylov.serviceiii.entity.work.WorkGroup;
 import com.alekseysamoylov.serviceiii.model.WorkGroupTitle;
 import com.alekseysamoylov.serviceiii.service.EnumDetailsService;
 import com.alekseysamoylov.serviceiii.service.WorkGroupService;

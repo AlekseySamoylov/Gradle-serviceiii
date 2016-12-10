@@ -1,5 +1,6 @@
-package com.alekseysamoylov.serviceiii.entity;
+package com.alekseysamoylov.serviceiii.entity.work;
 
+import com.alekseysamoylov.serviceiii.entity.CachableEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;

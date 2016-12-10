@@ -1,6 +1,6 @@
 package com.alekseysamoylov.serviceiii.service;
 
-import com.alekseysamoylov.serviceiii.entity.WorkGroup;
+import com.alekseysamoylov.serviceiii.entity.work.WorkGroup;
 
 import java.util.List;
 

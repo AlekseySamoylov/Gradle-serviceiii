@@ -1,6 +1,6 @@
 package com.alekseysamoylov.serviceiii.repository;
 
-import com.alekseysamoylov.serviceiii.entity.Work;
+import com.alekseysamoylov.serviceiii.entity.work.Work;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

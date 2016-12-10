@@ -1,5 +1,6 @@
-package com.alekseysamoylov.serviceiii.entity;
+package com.alekseysamoylov.serviceiii.entity.company;
 
+import com.alekseysamoylov.serviceiii.entity.EnumMessageSource;
 import com.alekseysamoylov.serviceiii.util.CustomIntegerEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

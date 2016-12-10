@@ -1,7 +1,7 @@
 package com.alekseysamoylov.serviceiii.service;
 
-import com.alekseysamoylov.serviceiii.entity.Work;
-import com.alekseysamoylov.serviceiii.entity.WorkGroup;
+import com.alekseysamoylov.serviceiii.entity.work.Work;
+import com.alekseysamoylov.serviceiii.entity.work.WorkGroup;
 import com.alekseysamoylov.serviceiii.repository.WorkRepository;
 import lombok.extern.apachecommons.CommonsLog;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.alekseysamoylov.serviceiii.service;
 
-import com.alekseysamoylov.serviceiii.entity.CompanyPositionOnMap;
+import com.alekseysamoylov.serviceiii.entity.company.CompanyPositionOnMap;
 
 import java.util.List;
 

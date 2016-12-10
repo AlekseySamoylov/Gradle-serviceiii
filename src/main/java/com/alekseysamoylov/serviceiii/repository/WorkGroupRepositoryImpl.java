@@ -1,8 +1,8 @@
 package com.alekseysamoylov.serviceiii.repository;
 
-import com.alekseysamoylov.serviceiii.entity.QWork;
-import com.alekseysamoylov.serviceiii.entity.QWorkGroup;
-import com.alekseysamoylov.serviceiii.entity.WorkGroup;
+import com.alekseysamoylov.serviceiii.entity.work.QWork;
+import com.alekseysamoylov.serviceiii.entity.work.QWorkGroup;
+import com.alekseysamoylov.serviceiii.entity.work.WorkGroup;
 import com.alekseysamoylov.serviceiii.repository.querydsl.QueryDslMetadata;
 import com.alekseysamoylov.serviceiii.repository.querydsl.QueryDslRepository;
 import org.springframework.beans.factory.annotation.Autowired;

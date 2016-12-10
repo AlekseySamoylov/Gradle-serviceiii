@@ -6,10 +6,20 @@
 http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/security
 http://www.springframework.org/schema/security/spring-security.xsd">
-    <security:http auto-config="true" use-expressions="false">
-        <security:intercept-url pattern="/admin" access="ROLE_USER"/>
-        <security:intercept-url pattern="/**" access="ROLE_ANONYMOUS"/>
+
+    <security:http auto-config="true" use-expressions="true">
+        <security:form-login login-page="/login"
+                             login-processing-url="/login"
+                             username-parameter="custom_username"
+                             password-parameter="custom_password"
+                             default-target-url="/admin"
+                             always-use-default-target="true"
+                             authentication-failure-url="/login?error=true"/>
+        <security:intercept-url pattern="/admin" access="hasRole('ROLE_USER')"/> <!--requires-channel="https"-->
+        <security:intercept-url pattern="/**" access="permitAll"/>
+        <security:access-denied-handler error-page="/403"/>
     </security:http>
+
     <security:authentication-manager>
         <security:authentication-provider>
             <security:user-service>
@@ -18,4 +28,6 @@ http://www.springframework.org/schema/security/spring-security.xsd">
             </security:user-service>
         </security:authentication-provider>
     </security:authentication-manager>
+
+
 </beans>
