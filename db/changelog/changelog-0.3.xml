@@ -91,4 +91,88 @@
             <column name="company_type">CAR_WASH</column>
         </insert>
     </changeSet>
+    <changeSet id="0.3-asamoylov-17" author="asamoylov">
+        <createTable tableName="users">
+            <column name="id" type="serial" remarks="Пользователь">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="username" type="varchar2(255)" remarks="Логин">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pass" type="char(80)" remarks="Пароль"
+                    defaultValue="d396278470cb1fa66880308b7805cf4f421b0817029d2030e79ce78ff6b886a4a46d162d9e04d151">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="0.3-asamoylov-18" author="asamoylov">
+        <createTable tableName="role" remarks="Роли">
+            <column name="id" type="serial" remarks="Идентификатор">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="authority" type="varchar2(255)" remarks="Строковое представление полномочий роли"/>
+            <column name="name" type="varchar2(255)" remarks="Наименование роли"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="0.3-asamoylov-19" author="asamoylov">
+        <createTable tableName="user_role" remarks="Роли пользователей">
+            <column name="user_id" type="integer" remarks="Идентификатор пользователя"/>
+            <column name="role_id" type="integer" remarks="Идентификатор роли"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="0.3-asamoylov-20" author="asamoylov">
+        <addPrimaryKey columnNames="user_id, role_id" tableName="user_role"/>
+    </changeSet>
+
+
+    <changeSet id="0.3-asamoylov-21" author="asamoylov">
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="user_role"
+                                 constraintName="fk_user_role_user"
+                                 referencedColumnNames="id"
+                                 referencedTableName="users"/>
+    </changeSet>
+
+    <changeSet id="0.3-asamoylov-22" author="asamoylov">
+        <addForeignKeyConstraint baseColumnNames="role_id"
+                                 baseTableName="user_role"
+                                 constraintName="fk_user_role_role"
+                                 referencedColumnNames="id"
+                                 referencedTableName="role"/>
+    </changeSet>
+
+    <changeSet id="0.3-asamoylov-23" author="asamoylov">
+        <insert tableName="role">
+            <column name="id">0</column>
+            <column name="authority">SUPER_USER</column>
+            <column name="name">Суперпользователь</column>
+        </insert>
+        <insert tableName="role">
+            <column name="id">1</column>
+            <column name="authority">ADMIN</column>
+            <column name="name">Администратор АС</column>
+        </insert>
+        <insert tableName="role">
+            <column name="id">2</column>
+            <column name="authority">USER</column>
+            <column name="name">Пользователь</column>
+        </insert>
+    </changeSet>
+
+    <changeSet id="0.3-asamoylov-24" author="asamoylov">
+        <insert tableName="users">
+            <column name="username">user</column>
+        </insert>
+    </changeSet>
+
+    <changeSet id="0.3-asamoylov-25" author="asamoylov">
+        <insert tableName="user_role">
+            <column name="user_id" valueComputed="(select id from users where username='user')"/>
+            <column name="role_id">0</column>
+        </insert>
+    </changeSet>
 </databaseChangeLog>
