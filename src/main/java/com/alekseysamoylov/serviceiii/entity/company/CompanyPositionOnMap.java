@@ -1,11 +1,11 @@
 package com.alekseysamoylov.serviceiii.entity.company;
 
 
+import com.alekseysamoylov.serviceiii.entity.AbstractSequenceIdEntity;
 import com.alekseysamoylov.serviceiii.entity.CachableEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -20,13 +20,10 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "company_position")
-@NamedQueries({
-        @NamedQuery(name = "CompanyPositionOnMap.findAll", query = "select c from CompanyPositionOnMap c")
-})
 @JsonIgnoreProperties({
     "cacheNames"
 })
-public class CompanyPositionOnMap implements Serializable, CachableEntity {
+public class CompanyPositionOnMap extends AbstractSequenceIdEntity implements Serializable, CachableEntity {
 
 
     public static final String CACHE_NAME = "companyPositionOnMap";
@@ -35,12 +32,6 @@ public class CompanyPositionOnMap implements Serializable, CachableEntity {
     public String[] getCacheNames() {
         return new String[]{CACHE_NAME};
     }
-
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -73,34 +64,10 @@ public class CompanyPositionOnMap implements Serializable, CachableEntity {
         this.companyTypeList = companyTypeList;
     }
 
-
-    @Override
-    public boolean equals(Object obj) {
-        if (null == obj) {
-            return false;
-        }
-        if (this == obj) {
-            return true;
-        }
-        if (!getClass().isAssignableFrom(Hibernate.getClass(obj))) {
-            return false;
-        }
-
-        CompanyPositionOnMap that = (CompanyPositionOnMap) obj;
-        return null != this.getId() && this.getId().equals(that.getId());
-    }
-
-    @Override
-    public int hashCode() {
-        int hashCode = 17;
-        hashCode += null == getId() ? 0 : getId().hashCode() * 35;
-        return hashCode;
-    }
-
     @Override
     public String toString() {
         return "CompanyPositionOnMap{" +
-                "id=" + id +
+                "id=" + super.getId() +
                 ", name='" + name + '\'' +
                 ", details='" + details + '\'' +
                 ", latitude=" + latitude +

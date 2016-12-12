@@ -1,13 +1,17 @@
 package com.alekseysamoylov.serviceiii.entity.security;
 
+import com.alekseysamoylov.serviceiii.entity.AbstractSequenceIdEntity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.Immutable;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.security.core.GrantedAuthority;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  * Роль пользователя.
@@ -17,12 +21,8 @@ import javax.persistence.*;
 @Table(name = "role")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-public class Role implements GrantedAuthority {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private Long id;
+@Setter
+public class Role extends AbstractSequenceIdEntity implements GrantedAuthority {
 
     /**
      * Код.

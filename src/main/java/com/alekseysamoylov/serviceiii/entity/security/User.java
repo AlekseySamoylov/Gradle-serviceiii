@@ -1,5 +1,6 @@
 package com.alekseysamoylov.serviceiii.entity.security;
 
+import com.alekseysamoylov.serviceiii.entity.AbstractSequenceIdEntity;
 import com.google.common.collect.Sets;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,12 +18,7 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "USERS")
-public class User implements UserDetails {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private Long id;
+public class User extends AbstractSequenceIdEntity implements UserDetails {
 
     /**
      * Логин
@@ -108,5 +104,13 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + super.getId() + '\'' +
+                "username='" + username + '\'' +
+                '}';
     }
 }

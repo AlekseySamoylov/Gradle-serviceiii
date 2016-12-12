@@ -1,5 +1,6 @@
 package com.alekseysamoylov.serviceiii.entity.security;
 
+import com.alekseysamoylov.serviceiii.entity.AbstractSequenceIdEntity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,20 +18,13 @@ import javax.persistence.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Setter
-public class UserRole {
+public class UserRole extends AbstractSequenceIdEntity {
 
     public UserRole(Long id, User user, Role role) {
         this.setId(id);
         this.setUser(user);
         this.setRole(role);
     }
-
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private Long id;
-
     /**
      * Пользователь
      */
@@ -43,7 +37,7 @@ public class UserRole {
      * Роль.
      */
     @Setter
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 

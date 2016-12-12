@@ -1,5 +1,6 @@
 package com.alekseysamoylov.serviceiii.entity.work;
 
+import com.alekseysamoylov.serviceiii.entity.AbstractSequenceIdEntity;
 import com.alekseysamoylov.serviceiii.entity.CachableEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -22,7 +23,7 @@ import java.util.List;
 @JsonIgnoreProperties({
         "cacheNames"
 })
-public class WorkGroup implements Serializable, CachableEntity {
+public class WorkGroup extends AbstractSequenceIdEntity implements Serializable, CachableEntity {
 
     @JsonDeserialize
     public static final String CACHE_NAME = "workGroup";
@@ -32,11 +33,6 @@ public class WorkGroup implements Serializable, CachableEntity {
         return new String[]{CACHE_NAME};
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
-
     @Column(name = "title")
     private String title;
 
@@ -44,30 +40,10 @@ public class WorkGroup implements Serializable, CachableEntity {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "workGroup", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Work> works;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        WorkGroup workGroup = (WorkGroup) o;
-
-        if (id != null ? !id.equals(workGroup.id) : workGroup.id != null) return false;
-        if (title != null ? !title.equals(workGroup.title) : workGroup.title != null) return false;
-        return works != null ? works.equals(workGroup.works) : workGroup.works == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 34 * result + (title != null ? title.hashCode() : 0);
-        result = 34 * result + (works != null ? works.hashCode() : 0);
-        return result;
-    }
 
     @Override
     public String toString() {
-        return "id " + id
+        return "id " + super.getId()
                 + " title " + title;
     }
 }

@@ -1,5 +1,6 @@
 package com.alekseysamoylov.serviceiii.entity.work;
 
+import com.alekseysamoylov.serviceiii.entity.AbstractSequenceIdEntity;
 import com.alekseysamoylov.serviceiii.entity.CachableEntity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -22,7 +23,7 @@ import java.math.BigDecimal;
 @JsonIgnoreProperties({
         "cacheNames"
 })
-public class Work implements Serializable, CachableEntity {
+public class Work extends AbstractSequenceIdEntity implements Serializable, CachableEntity {
 
     @JsonDeserialize
     public static final String CACHE_NAME = "work";
@@ -31,11 +32,6 @@ public class Work implements Serializable, CachableEntity {
     public String[] getCacheNames() {
         return new String[]{CACHE_NAME};
     }
-
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     @Column
     private String title;
@@ -52,34 +48,9 @@ public class Work implements Serializable, CachableEntity {
     private WorkGroup workGroup;
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Work work = (Work) o;
-
-        if (id != null ? !id.equals(work.id) : work.id != null) return false;
-        if (title != null ? !title.equals(work.title) : work.title != null) return false;
-        if (price != null ? !price.equals(work.price) : work.price != null) return false;
-        if (details != null ? !details.equals(work.details) : work.details != null) return false;
-        return workGroup != null ? workGroup.equals(work.workGroup) : work.workGroup == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + (price != null ? price.hashCode() : 0);
-        result = 31 * result + (details != null ? details.hashCode() : 0);
-        result = 31 * result + (workGroup != null ? workGroup.hashCode() : 0);
-        return result;
-    }
-
-    @Override
     public String toString() {
         return "Work{" +
-                "id=" + id +
+                "id=" + super.getId() +
                 ", title='" + title + '\'' +
                 ", price='" + price + '\'' +
                 ", details='" + details + '\'' +
