@@ -36,9 +36,8 @@ public class User extends AbstractSequenceIdEntity implements UserDetails {
     /**
      * Роль пользователя.
      */
-    //TODO: change EAGER type
     @Getter
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<UserRole> userRoles = Sets.newHashSet();
 
     /**

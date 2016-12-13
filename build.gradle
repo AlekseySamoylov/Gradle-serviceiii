@@ -22,7 +22,7 @@ repositories {
 
 dependencies {
     def springVersion = '4.3.3.RELEASE'
-    def springSecurityVersion = '4.2.0.RELEASE'
+    def springSecurityVersion = '4.0.3.RELEASE'
     def hibernateVersion = '5.1.0.Final'
     def queryDslVersion = '3.7.4'
     def jacksonVersion = '2.8.1'

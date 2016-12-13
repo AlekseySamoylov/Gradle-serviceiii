@@ -12,11 +12,6 @@ public class UserRepositoryTest extends BaseRepositoryTest {
     private UserRepository userRepository;
 
     @Test
-    public void testFindByUsername() throws Exception {
-        System.out.println("hello " + userRepository.findByUsername("user"));
-    }
-
-    @Test
     public void testFindByUsernameFetchLazy() {
         System.out.println("hello " + userRepository.findOneByUsernameFetchLazy("user"));
     }

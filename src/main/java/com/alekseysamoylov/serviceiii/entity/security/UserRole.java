@@ -1,7 +1,6 @@
 package com.alekseysamoylov.serviceiii.entity.security;
 
 import com.alekseysamoylov.serviceiii.entity.AbstractSequenceIdEntity;
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,8 +13,8 @@ import javax.persistence.*;
  */
 @Entity
 @Immutable
-@Table(name = "role")
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name = "user_role")
+@NoArgsConstructor
 @Getter
 @Setter
 public class UserRole extends AbstractSequenceIdEntity {

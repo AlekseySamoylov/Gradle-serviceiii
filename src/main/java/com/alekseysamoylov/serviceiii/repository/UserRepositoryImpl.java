@@ -8,21 +8,23 @@ import com.alekseysamoylov.serviceiii.repository.querydsl.QueryDslMetadata;
 import com.alekseysamoylov.serviceiii.repository.querydsl.QueryDslRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Created by alekseysamoylov on 12/12/16.
+ * Реализация {@link UserRepositoryCustom}
  */
 @Repository
-public class UserRepositoryCustomImpl implements UserRepositoryCustom {
+public class UserRepositoryImpl implements UserRepositoryCustom {
 
     private QueryDslRepository queryDslRepository;
 
     @Autowired
-    public UserRepositoryCustomImpl(QueryDslRepository queryDslRepository) {
+    public UserRepositoryImpl(QueryDslRepository queryDslRepository) {
         this.queryDslRepository = queryDslRepository;
     }
 
     @Override
+    @Transactional(readOnly = true)
     public User findOneByUsernameFetchLazy(String username) {
         QUser qUser = QUser.user;
         QUserRole qUserRole = QUserRole.userRole;
