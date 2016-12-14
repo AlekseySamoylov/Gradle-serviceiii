@@ -183,4 +183,25 @@
             </column>
         </addColumn>
     </changeSet>
+
+    <changeSet id="0.3-asamoylov-27" author="asamoylov">
+        <insert tableName="role">
+            <column name="id">3</column>
+            <column name="authority">ROLE_USER</column>
+            <column name="name">Пользователь Spring Security</column>
+        </insert>
+    </changeSet>
+
+    <changeSet id="0.3-asamoylov-28" author="asamoylov">
+        <insert tableName="users">
+            <column name="username">user_ok</column>
+        </insert>
+    </changeSet>
+
+    <changeSet id="0.3-asamoylov-29" author="asamoylov">
+        <insert tableName="user_role">
+            <column name="user_id" valueComputed="(select id from users where username='user_ok')"/>
+            <column name="role_id">3</column>
+        </insert>
+    </changeSet>
 </databaseChangeLog>

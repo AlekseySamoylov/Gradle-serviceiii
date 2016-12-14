@@ -71,7 +71,7 @@ public class User extends AbstractSequenceIdEntity implements UserDetails {
      */
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     /**
