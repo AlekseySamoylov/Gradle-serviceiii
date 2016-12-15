@@ -48,6 +48,9 @@
 <spring:url value="/admin" var="adminUrl"/>
 <a href="${adminUrl}">AdminPanel</a>
 
+<a href="<spring:url value="/logout"/>"><spring:message code="header.logout" text="Logout"/></a>
+
+
 <script src="${coreJs}"></script>
 <script src="${bootstrapJs}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

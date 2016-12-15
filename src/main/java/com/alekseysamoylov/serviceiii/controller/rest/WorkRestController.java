@@ -73,6 +73,13 @@ public class WorkRestController {
     }
 
     @CrossOrigin
+    @RequestMapping(value = "/works/{id}", method = RequestMethod.PUT)
+    public String saveWork(@RequestBody Work work, @PathVariable Long id) {
+        workService.update(work, id);
+        return "redirect:/works";
+    }
+
+    @CrossOrigin
     @RequestMapping(value = "/works/{id}", method = RequestMethod.DELETE)
     public String deleteWork(@PathVariable Long id) {
         workService.delete(id);

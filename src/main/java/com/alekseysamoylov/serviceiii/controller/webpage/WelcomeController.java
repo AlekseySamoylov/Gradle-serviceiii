@@ -40,6 +40,11 @@ public class WelcomeController {
         return "admin";
     }
 
+    @RequestMapping(value = "/client")
+    public String goClient() {
+        return "test";
+    }
+
     @RequestMapping(value = "/fileUpload")
     public String goFileUpload() {
         return "fileUpload";

@@ -19,6 +19,15 @@ public interface WorkService {
     Work save(Work work);
 
     /**
+     * Обновляет работу
+     *
+     * @param work работа
+     * @param id   идентификатор работы
+     * @return работа
+     */
+    void update(Work work, Long id);
+
+    /**
      * Удаляет работу
      *
      * @param id работы

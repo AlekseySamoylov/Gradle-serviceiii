@@ -204,4 +204,33 @@
             <column name="role_id">3</column>
         </insert>
     </changeSet>
+
+    <changeSet id="0.3-asamoylov-30" author="asamoylov">
+        <insert tableName="users">
+            <column name="username">user_admin</column>
+        </insert>
+    </changeSet>
+
+    <changeSet id="0.3-asamoylov-31" author="asamoylov">
+        <insert tableName="user_role">
+            <column name="user_id" valueComputed="(select id from users where username='user_admin')"/>
+            <column name="role_id">1</column>
+        </insert>
+    </changeSet>
+
+    <changeSet id="0.3-asamoylov-32" author="asamoylov">
+        <update tableName="role">
+            <column name="authority">ROLE_SUPER_USER</column>
+            <where>id = 0</where>
+        </update>
+        <update tableName="role">
+            <column name="authority">ROLE_ADMIN</column>
+            <where>id = 1</where>
+        </update>
+        <update tableName="role">
+            <column name="authority">ROLE_MANAGER</column>
+            <column name="name">Менеджер</column>
+            <where>id = 2</where>
+        </update>
+    </changeSet>
 </databaseChangeLog>

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * Контроллер для обработки ошибок, прав доступа и отображения пользователю соответствующих сообщений
  */
-@ControllerAdvice
+@ControllerAdvice(basePackages = {"com.alekseysamoylov.serviceiii.controller"})
 public class BaseController {
 
     private final Logger logger = Logger.getLogger(BaseController.class);
