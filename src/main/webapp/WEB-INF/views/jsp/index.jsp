@@ -31,8 +31,10 @@
 <p>/rest/works/{id} - GET для получения работы</p>
 <p>/rest/works/{id} - DELEte для получения работы</p>
 <p>/rest/works POST запрос для сохранения новой работы</p>
+<p>/rest/works/{id} PUT запрос для обновления работы</p>
 <p>/rest/workGroups/{id} - для получения группы работ</p>
 <p>/rest/worksByGroupId/{id} - для получения работ определенной группы</p>
+<p>/rest/bonus/{id} - запрос на получение суммы бонусов пользователя (1)</p>
 <p>Картинки с именами, соответствующими id группы работ по адресу:</p>
 <p>/files/staticImages/{imageName}</p>
 <pre>
