@@ -233,4 +233,30 @@
             <where>id = 2</where>
         </update>
     </changeSet>
+
+    <changeSet id="0.3-asamoylov-33" author="asamoylov">
+        <createTable tableName="bonus">
+            <column name="id" type="serial" remarks="Идентификатор">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="integer" remarks="Идентификатор пользователя">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="number(17,2)" remarks="Накопленные баллы">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date" type="date" remarks="Дата зачисления">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="0.3-asamoylov-34" author="asamoylov">
+        <addForeignKeyConstraint baseTableName="bonus"
+                                 baseColumnNames="user_id"
+                                 constraintName="fk_bonus_for_user"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
 </databaseChangeLog>
