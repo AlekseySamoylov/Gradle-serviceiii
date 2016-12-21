@@ -22,4 +22,9 @@ public class UserServiceImpl implements UserService {
     public User findByUsername(String username) {
         return userRepository.findOneByUsernameFetchLazy(username);
     }
+
+    @Override
+    public Long save(User user) {
+        return userRepository.saveAndFlush(user).getId();
+    }
 }

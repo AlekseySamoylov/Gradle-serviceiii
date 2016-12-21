@@ -14,4 +14,12 @@ public interface UserService {
      * @return пользователь
      */
     User findByUsername(String username);
+
+    /**
+     * Сохраняет нового пользователя
+     *
+     * @param user пользователь
+     * @return id пользователя
+     */
+    Long save(User user);
 }
