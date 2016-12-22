@@ -1,21 +1,11 @@
 package com.alekseysamoylov.serviceiii.service.security;
 
-import org.springframework.security.crypto.password.StandardPasswordEncoder;
-import org.springframework.stereotype.Service;
-
 /**
- * Сервис для генерации пароля
+ * Сервис для работы с паролем
  */
-@Service
-public class MyPasswordEncoder {
-    public String encodePassword(String pass) {
-        StandardPasswordEncoder encoder = new StandardPasswordEncoder();
-        return encoder.encode(pass);
-    }
+public interface MyPasswordEncoder {
 
-    public static void main(String[] args) {
-        MyPasswordEncoder passwordEncoder = new MyPasswordEncoder();
-        System.out.println(passwordEncoder.encodePassword("secret"));
-    }
+    String encodePassword(String pass);
 
+    boolean matchPassword(CharSequence rawPassword, String encodedPassword);
 }

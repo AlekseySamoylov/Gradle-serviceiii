@@ -50,6 +50,11 @@ public class WelcomeController {
         return "fileUpload";
     }
 
+    @RequestMapping(value = "/app")
+    public String goApp() {
+        return "/app/index";
+    }
+
 
     @CrossOrigin
     @RequestMapping(value = "/prices")
