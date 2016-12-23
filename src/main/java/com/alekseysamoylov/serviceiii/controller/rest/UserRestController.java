@@ -28,4 +28,10 @@ public class UserRestController {
         return userService.save(user);
     }
 
+    @CrossOrigin
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public Long login(User user) {
+        return userService.login(user);
+    }
+
 }

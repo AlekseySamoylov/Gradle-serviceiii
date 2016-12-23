@@ -22,4 +22,13 @@ public interface UserService {
      * @return id пользователя
      */
     Long save(User user);
+
+    /**
+     * Проверяет, есть ли пользователь с данным логином и паролем
+     * и возвращает id при обнаружении
+     *
+     * @param user пользователь
+     * @return id пользователя
+     */
+    Long login(User user);
 }
