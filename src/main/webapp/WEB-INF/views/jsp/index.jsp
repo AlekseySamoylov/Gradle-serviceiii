@@ -28,6 +28,10 @@
 <a href="${worksUrl}">Works</a>
 <br/>
 
+<spring:url value="/app" var="appUrl"/>
+<a href="${appUrl}">Application</a>
+<br/>
+
 <p>/rest/works/{id} - GET для получения работы</p>
 <p>/rest/works/{id} - DELEte для получения работы</p>
 <p>/rest/works POST запрос для сохранения новой работы</p>

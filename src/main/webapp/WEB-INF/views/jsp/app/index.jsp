@@ -15,7 +15,7 @@
     <meta charset="utf-8">
     <title><spring:message code="app.title"/></title>
 
-    <spring:url value="/resurces/core/css/bootstrap.min.css" var="bootstrap"/>
+    <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrap"/>
     <link rel="stylesheet" href="${bootstrap}">
 
     <%-- JS необходимые до загрузки страницы --%>
@@ -29,10 +29,15 @@
     <script src="${bootstrapJs}"></script>
 
     <%-- скрипты приложения --%>
-    <jsp:include page="./includes/appJs.jsp"/>
+    <jsp:include page="/WEB-INF/app/includes/appJs.jsp"/>
 
 
 </head>
 <body>
+<spring:url value="/resources/rest/images/1.png" var="img"/>
+<img src="${img}" alt="img">
+
+<jsp:include page="/WEB-INF/app/test/test.jsp"/>
+
 </body>
 </html>

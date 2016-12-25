@@ -1,7 +1,8 @@
 (function () {
     "use strict";
 
-    angular.module('serviceiii', [])
-
+    angular.module('serviceiii', [
+        'serviceiii.test'
+    ])
 
 })();
