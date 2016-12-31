@@ -12,6 +12,7 @@
     <cache name="companyPositionOnMap" eternal="true" maxElementsInMemory="200" overflowToDisk="false"/>
     <cache name="workGroup" eternal="true" maxElementsInMemory="200" overflowToDisk="false"/>
     <cache name="work" eternal="true" maxElementsInMemory="400" overflowToDisk="false"/>
+    <cache name="bonus" eternal="true" maxElementsInMemory="400" overflowToDisk="false"/>
 
 
 </ehcache>

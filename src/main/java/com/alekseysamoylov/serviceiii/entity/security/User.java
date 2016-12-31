@@ -1,6 +1,7 @@
 package com.alekseysamoylov.serviceiii.entity.security;
 
 import com.alekseysamoylov.serviceiii.entity.AbstractSequenceIdEntity;
+import com.alekseysamoylov.serviceiii.entity.reference.Customer;
 import com.google.common.collect.Sets;
 import lombok.Getter;
 import lombok.Setter;
@@ -36,9 +37,12 @@ public class User extends AbstractSequenceIdEntity implements UserDetails {
     /**
      * Роль пользователя.
      */
-    @Getter
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<UserRole> userRoles = Sets.newHashSet();
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
     /**
      * Реализация интерфейса UserDetails

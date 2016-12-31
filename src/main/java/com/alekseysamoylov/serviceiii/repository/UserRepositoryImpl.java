@@ -1,5 +1,6 @@
 package com.alekseysamoylov.serviceiii.repository;
 
+import com.alekseysamoylov.serviceiii.entity.reference.QCustomer;
 import com.alekseysamoylov.serviceiii.entity.security.QRole;
 import com.alekseysamoylov.serviceiii.entity.security.QUser;
 import com.alekseysamoylov.serviceiii.entity.security.QUserRole;
@@ -29,10 +30,12 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
         QUser qUser = QUser.user;
         QUserRole qUserRole = QUserRole.userRole;
         QRole qRole = QRole.role;
+        QCustomer qCustomer = QCustomer.customer;
 
         QueryDslMetadata metadata = new QueryDslMetadata();
         metadata.from(qUser);
         metadata.leftJoin(qUser.userRoles, qUserRole).fetch();
+        metadata.leftJoin(qUser.customer, qCustomer).fetch();
         metadata.leftJoin(qUserRole.role, qRole).fetch();
         metadata.where(qUser.username.eq(username));
 
