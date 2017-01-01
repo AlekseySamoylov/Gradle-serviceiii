@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Table
 public class Customer extends AbstractSequenceIdEntity {
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "employee")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "customer")
     private User user;
 
     @Column

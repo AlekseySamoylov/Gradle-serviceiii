@@ -29,7 +29,7 @@
     <form id="appointment-form" action="${loginUrl}" method="POST">
         <div class="form-group">
             <label for="user"><spring:message code="login.username" text="Username"/></label>
-            <input type="text" name="custom_username" class="form-control" id="user"/>
+            <input type="text" name="custom_username" class="form-control" autofocus="autofocus" id="user"/>
         </div>
         <div class="form-group">
             <label for="pass"><spring:message code="login.pass" text="Password"/></label>

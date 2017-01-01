@@ -24,6 +24,12 @@ public class UserRole extends AbstractSequenceIdEntity {
         this.setUser(user);
         this.setRole(role);
     }
+
+    public UserRole(User user, Role role) {
+        this.setUser(user);
+        this.setRole(role);
+    }
+
     /**
      * Пользователь
      */

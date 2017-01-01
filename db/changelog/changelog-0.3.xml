@@ -345,4 +345,12 @@
             <column name="active">TRUE</column>
         </insert>
     </changeSet>
+
+    <changeSet id="0.3-asamoylov-46" author="asamoylov">
+        <insert tableName="role">
+            <column name="id">4</column>
+            <column name="authority">ROLE_CUSTOMER</column>
+            <column name="name">Клиент</column>
+        </insert>
+    </changeSet>
 </databaseChangeLog>
