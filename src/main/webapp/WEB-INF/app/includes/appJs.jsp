@@ -5,5 +5,8 @@
 <spring:url value="/application/app.js" var="app"/>
 <script src="${app}"></script>
 
+<spring:url value="/application/auth/authService.js" var="auth"/>
+<script src="${auth}"></script>
+
 <spring:url value="/application/test/test.js" var="test"/>
 <script src="${test}"></script>

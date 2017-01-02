@@ -2,7 +2,8 @@
     "use strict";
 
     angular.module('serviceiii', [
-        'serviceiii.test'
+        'serviceiii.test',
+        'serviceiii.auth'
     ])
 
 })();
