@@ -39,5 +39,8 @@
 
 <jsp:include page="/WEB-INF/app/test/test.jsp"/>
 
+<jsp:include page="/WEB-INF/app/registration/registration.jsp"/>
+
+
 </body>
 </html>

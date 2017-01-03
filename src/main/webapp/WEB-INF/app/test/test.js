@@ -1,8 +1,8 @@
 (function () {
     "use strict";
     angular.module('serviceiii.test', [])
-        .controller('TestController', ['$scope', '$http', 'AuthService',
-            function ($scope, $http, AuthService) {
+        .controller('TestController', ['$scope', '$http', 'SecurityService',
+            function ($scope, $http, SecurityService) {
             $scope.test = "Hello world";
 
             var testResponse = $http.get("rest/enums", {
@@ -17,7 +17,7 @@
                 $scope.test = data;
             });
 
-                AuthService.login("user", "secret").then(function (data) {
+                SecurityService.login("user", "secret").then(function (data) {
                     $scope.testLogin = data;
                 });
             

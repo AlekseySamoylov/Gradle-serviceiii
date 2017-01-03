@@ -52,11 +52,14 @@
 <spring:url value="/rest/workGroups" var="workGroupsUrl"/>
 <a href="${workGroupsUrl}">WorkGroups</a>
 <br/>
+<a href="<spring:url value="/logout"/>"><spring:message code="header.logout" text="Logout"/></a>
+<br/>
 <spring:url value="/admin" var="adminUrl"/>
 <a href="${adminUrl}">AdminPanel</a>
-
-<a href="<spring:url value="/logout"/>"><spring:message code="header.logout" text="Logout"/></a>
-
+<br/>
+<a href="<spring:url value="/client"/>">Клиент</a>
+<br/>
+<a href="<spring:url value="/app"/>">Тестовая страница приложения</a>
 
 <script src="${coreJs}"></script>
 <script src="${bootstrapJs}"></script>

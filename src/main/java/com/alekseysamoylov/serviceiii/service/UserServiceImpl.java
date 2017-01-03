@@ -6,6 +6,9 @@ import com.alekseysamoylov.serviceiii.service.security.MyPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Реализация {@link UserService}.
  */
@@ -44,5 +47,15 @@ public class UserServiceImpl implements UserService {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public List<String> getLoginList() {
+        List<String> loginList = new ArrayList<>();
+        List<User> userList = userRepository.findAll();
+        for (User user : userList) {
+            loginList.add(user.getUsername());
+        }
+        return loginList;
     }
 }

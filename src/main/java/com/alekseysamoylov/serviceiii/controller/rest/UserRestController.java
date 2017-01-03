@@ -5,6 +5,8 @@ import com.alekseysamoylov.serviceiii.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Конроллер для работы с сущностью {@link User}
  */
@@ -18,6 +20,13 @@ public class UserRestController {
     public UserRestController(UserService userService) {
         this.userService = userService;
     }
+
+    @CrossOrigin
+    @RequestMapping(value = "/login-list", method = RequestMethod.GET)
+    public List<String> getLoginList() {
+        return userService.getLoginList();
+    }
+
 
     @CrossOrigin
     @RequestMapping(value = "/login", method = RequestMethod.POST)

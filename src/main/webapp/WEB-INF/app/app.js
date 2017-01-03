@@ -3,7 +3,8 @@
 
     angular.module('serviceiii', [
         'serviceiii.test',
-        'serviceiii.auth'
+        'serviceiii.security',
+        'serviceiii.registration'
     ])
 
 })();

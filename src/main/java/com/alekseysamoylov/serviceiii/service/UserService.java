@@ -2,6 +2,8 @@ package com.alekseysamoylov.serviceiii.service;
 
 import com.alekseysamoylov.serviceiii.entity.security.User;
 
+import java.util.List;
+
 /**
  * Сервис для работы с пользователями.
  */
@@ -31,4 +33,11 @@ public interface UserService {
      * @return id пользователя
      */
     Long login(User user);
+
+    /**
+     * Возвращает список логинов пользователей
+     *
+     * @return список логинов пользователей
+     */
+    List<String> getLoginList();
 }

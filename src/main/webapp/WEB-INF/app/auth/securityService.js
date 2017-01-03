@@ -1,7 +1,7 @@
 (function () {
     "use strict";
-    angular.module('serviceiii.auth', [])
-        .factory('AuthService', ['$http', '$q',
+    angular.module('serviceiii.security', [])
+        .factory('SecurityService', ['$http', '$q',
             function ($http, $q) {
                 var currentUser;
                 var currentUserId;
@@ -36,6 +36,19 @@
                     },
                     getCurrentUserId: function () {
                         return currentUserId;
+                    },
+                    makeCustomerFromUserRegForm: function (userForm) {
+                        var customer = {
+                            user: {
+                                username: userForm.login,
+                                pass: userForm.password
+                            },
+                            firstName: userForm.firstName,
+                            lastName: userForm.lastName,
+                            phone: userForm.phone,
+                            email: userForm.email
+                        };
+                        return customer;
                     }
                 }
             }]);
