@@ -3,23 +3,29 @@
     angular.module('serviceiii.test', [])
         .controller('TestController', ['$scope', '$http', 'SecurityService',
             function ($scope, $http, SecurityService) {
-            $scope.test = "Hello world";
+                $scope.test = "Hello world";
 
-            var testResponse = $http.get("rest/enums", {
-                id: 1
-            });
+                // var testResponse = $http.get("rest/enums", {
+                //     id: 1
+                // });
+                //
+                // testResponse.then(function (response) {
+                //     $scope.testId = response.data;
+                // });
+                //
+                // testResponse.success(function (data, status, headers, config) {
+                //     $scope.test = data;
+                // });
+                //
+                // SecurityService.login("user", "secret").then(function (data) {
+                //     $scope.testLogin = data;
+                // });
 
-                testResponse.then(function (response) {
-                    $scope.testId = response.data;
-                });
-            
-            testResponse.success(function (data, status, headers, config) {
-                $scope.test = data;
-            });
+                $scope.testLogin = SecurityService.getCurrentUserId();
 
-                SecurityService.login("user", "secret").then(function (data) {
-                    $scope.testLogin = data;
-                });
-            
-        }]);
+                $scope.showUserId = function () {
+                    console.log("hello user id " + SecurityService.getCurrentUserId());
+                }
+
+            }]);
 })();

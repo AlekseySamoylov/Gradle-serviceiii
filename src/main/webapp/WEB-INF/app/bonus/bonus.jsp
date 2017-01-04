@@ -8,5 +8,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+<div ng-controller="BonusController">
 
-<h1>Hello world</h1>
+    <h1>Количество накопленных бонусов = {{userBonuses}}</h1>
+
+</div>

@@ -25,6 +25,12 @@
     <spring:url value="/resources/core/js/angular.min.js" var="angular"/>
     <script src="${angular}"></script>
 
+    <spring:url value="/resources/core/js/angular-cookies.js" var="angularCookies"/>
+    <script src="${angularCookies}"></script>
+
+    <spring:url value="/resources/core/js/angular-route.js" var="angularRoute"/>
+    <script src="${angularRoute}"></script>
+
     <spring:url value="/resources/core/js/bootstrap.min.js" var="bootstrapJs"/>
     <script src="${bootstrapJs}"></script>
 
@@ -38,8 +44,6 @@
 <img src="${img}" alt="img">
 
 <jsp:include page="/WEB-INF/app/test/test.jsp"/>
-
-<jsp:include page="/WEB-INF/app/registration/registration.jsp"/>
 
 
 </body>

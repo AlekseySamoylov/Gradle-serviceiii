@@ -2,7 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 
-<div class="container" ng-controller="RegistrationController">
+<div class="container" nng-show="!SecurityService.isLoggedId()" ng-controller="RegistrationController">
     <h1>Быстрая регистрация</h1>
 
     <p>{{user}} {{noExistInList}} {{allChecked}}</p>

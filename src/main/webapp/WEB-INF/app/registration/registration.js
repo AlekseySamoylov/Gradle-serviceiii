@@ -109,7 +109,10 @@
                 $scope.saveUser = function () {
                     var customer = SecurityService.makeCustomerFromUserRegForm($scope.user);
 
-                    window.alert("send" + customer);
+                    $scope.userId = SecurityService.registration(customer);
+
+                    $route.reload();
+
                 };
 
                 var contains = function (array, entry) {

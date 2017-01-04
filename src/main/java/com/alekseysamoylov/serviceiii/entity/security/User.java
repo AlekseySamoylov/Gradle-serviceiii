@@ -1,6 +1,7 @@
 package com.alekseysamoylov.serviceiii.entity.security;
 
 import com.alekseysamoylov.serviceiii.entity.AbstractSequenceIdEntity;
+import com.alekseysamoylov.serviceiii.entity.CachableEntity;
 import com.alekseysamoylov.serviceiii.entity.reference.Customer;
 import com.google.common.collect.Sets;
 import lombok.Getter;
@@ -19,7 +20,14 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "USERS")
-public class User extends AbstractSequenceIdEntity implements UserDetails {
+public class User extends AbstractSequenceIdEntity implements UserDetails, CachableEntity {
+
+    public static final String CACHE_NAME = "user";
+
+    @Override
+    public String[] getCacheNames() {
+        return new String[]{CACHE_NAME};
+    }
 
     /**
      * Логин

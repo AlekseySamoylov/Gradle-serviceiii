@@ -1,13 +1,24 @@
 (function () {
     "use strict";
     angular.module('serviceiii.security', [])
-        .factory('SecurityService', ['$http', '$q',
-            function ($http, $q) {
-                var currentUser;
-                var currentUserId;
-                console.log("hello auth factory");
-
+        .factory('SecurityService', ['$http', '$q', '$cookies',
+            function ($http, $q, $cookies) {
+                var currentUserId = $cookies.get('currentUserId');
                 return {
+                    registration: function (customer) {
+                        var deferred = $q.defer();
+
+                        $http.post("rest/customer", customer)
+                            .then(function (response) {
+                                deferred.resolve(response)
+                            })
+                            .catch(function (response) {
+                                deferred.reject(response)
+                            });
+                        currentUserId = deferred.promise;
+                        $cookies.put("currentUserId", currentUserId);
+                        return deferred.promise;
+                    },
                     login: function (login, pass) {
 
                         var deferred = $q.defer();
@@ -23,13 +34,15 @@
                                 deferred.reject(response);
                             });
                         currentUserId = deferred.promise;
+                        $cookies.put("currentUserId", currentUserId);
                         return deferred.promise;
                     },
                     logout: function () {
-
+                        currentUserId = null;
+                        $cookies.put("currentUserId", currentUserId);
                     },
                     isLoggedIn: function () {
-
+                        return !!currentUserId;
                     },
                     currentUser: function () {
 
