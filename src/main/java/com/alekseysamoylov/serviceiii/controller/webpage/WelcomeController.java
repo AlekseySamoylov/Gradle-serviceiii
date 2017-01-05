@@ -50,7 +50,7 @@ public class WelcomeController {
         return "fileUpload";
     }
 
-    @RequestMapping(value = "/app")
+    @RequestMapping(value = "/app/**")
     public String goApp() {
         return "/app/index";
     }
