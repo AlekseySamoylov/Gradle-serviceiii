@@ -353,4 +353,18 @@
             <column name="name">Клиент</column>
         </insert>
     </changeSet>
+
+    <changeSet id="0.3-asamoylov-47" author="asamoylov">
+        <insert tableName="work_group">
+            <column name="id">6</column>
+            <column name="title">Ремонт тормозной системы</column>
+        </insert>
+    </changeSet>
+
+    <changeSet id="0.3-asamoylov-48" author="asamoylov">
+        <insert tableName="work_group">
+            <column name="id">7</column>
+            <column name="title">Прочее</column>
+        </insert>
+    </changeSet>
 </databaseChangeLog>

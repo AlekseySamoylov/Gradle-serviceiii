@@ -67,23 +67,20 @@ public class WorkRestController {
 
     @CrossOrigin
     @RequestMapping(value = "/works", method = RequestMethod.POST)
-    public String saveWork(@RequestBody Work work) {
+    public void saveWork(@RequestBody Work work) {
         workService.save(work);
-        return "redirect:/works";
     }
 
     @CrossOrigin
     @RequestMapping(value = "/works/{id}", method = RequestMethod.PUT)
-    public String saveWork(@RequestBody Work work, @PathVariable Long id) {
+    public void saveWork(@RequestBody Work work, @PathVariable Long id) {
         workService.update(work, id);
-        return "redirect:/works";
     }
 
     @CrossOrigin
     @RequestMapping(value = "/works/{id}", method = RequestMethod.DELETE)
-    public String deleteWork(@PathVariable Long id) {
+    public void deleteWork(@PathVariable Long id) {
         workService.delete(id);
-        return "redirect:/works";
     }
 
     @CrossOrigin
@@ -101,10 +98,9 @@ public class WorkRestController {
 
     @CrossOrigin
     @RequestMapping(value = "/postTest", method = RequestMethod.POST)
-    public String saveString(@RequestBody Work work) {
+    public void saveString(@RequestBody Work work) {
         System.out.println("hello work " + work);
         System.out.println("hello id " + work.getWorkGroup().getId());
-        return "redirect:/";
     }
 
 

@@ -9,19 +9,20 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 <div ng-controller="TestController">
-    <h1>id пользователя: {{testLogin}}</h1>
-    <button class="button" ng-click="showUserId()">Show user id</button>
+    <%--<h1>id пользователя: {{testLogin}}</h1>--%>
+    <%--<button class="button" ng-click="showUserId()">Show user id</button>--%>
 
 
-    <jsp:include page="/WEB-INF/app/registration/registration.jsp"/>
+    <%--<jsp:include page="/WEB-INF/app/registration/registration.jsp"/>--%>
 
 
-    <jsp:include page="/WEB-INF/app/login/login.jsp"/>
+    <%--<jsp:include page="/WEB-INF/app/login/login.jsp"/>--%>
 
-    <jsp:include page="/WEB-INF/app/login/logout.jsp"/>
+    <%--<jsp:include page="/WEB-INF/app/login/logout.jsp"/>--%>
 
-    <jsp:include page="/WEB-INF/app/bonus/bonus.jsp"/>
+    <%--<jsp:include page="/WEB-INF/app/bonus/bonus.jsp"/>--%>
 
+    <jsp:include page="/WEB-INF/app/works/worksJournal.jsp"/>
 
 
 </div>

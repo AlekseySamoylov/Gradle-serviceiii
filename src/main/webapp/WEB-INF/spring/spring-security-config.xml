@@ -19,7 +19,8 @@ http://www.springframework.org/schema/security/spring-security.xsd http://www.sp
                              password-parameter="custom_password"
                              authentication-failure-url="/login?error=true"/>
         <security:intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/> <!--requires-channel="https"-->
-        <security:intercept-url pattern="/client" access="hasRole('ROLE_CUSTOMER')"/> <!--requires-channel="https"-->
+        <security:intercept-url pattern="/client" access="hasRole('ROLE_CUSTOMER')"/>
+        <security:intercept-url pattern="/app" access="hasRole('ROLE_ADMIN')"/> <!--requires-channel="https"-->
         <security:intercept-url pattern="/**" access="permitAll"/>
         <security:access-denied-handler error-page="/403"/>
     </security:http>

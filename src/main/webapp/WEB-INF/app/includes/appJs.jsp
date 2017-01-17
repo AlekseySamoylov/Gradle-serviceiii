@@ -22,3 +22,9 @@
 
 <spring:url value="/application/test/test.js" var="test"/>
 <script src="${test}"></script>
+
+<spring:url value="/application/works/workForm.js" var="workForm"/>
+<script src="${workForm}"></script>
+
+<spring:url value="/application/works/worksJournal.js" var="worksJournal"/>
+<script src="${worksJournal}"></script>

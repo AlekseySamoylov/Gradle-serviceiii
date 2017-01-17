@@ -41,7 +41,6 @@
 </head>
 <body>
 <spring:url value="/resources/rest/images/1.png" var="img"/>
-<img src="${img}" alt="img">
 
 <jsp:include page="/WEB-INF/app/test/test.jsp"/>
 

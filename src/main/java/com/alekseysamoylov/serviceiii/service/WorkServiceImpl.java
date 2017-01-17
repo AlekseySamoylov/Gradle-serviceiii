@@ -34,6 +34,7 @@ public class WorkServiceImpl implements WorkService {
     }
 
     @Override
+    @CacheEvict(value = {WorkGroup.CACHE_NAME, Work.CACHE_NAME}, allEntries = true) // чистим кэш для групп работ
     public void update(Work work, Long id) {
         Work workInDb = workRepository.findOne(id);
         workInDb.setTitle(work.getTitle());
